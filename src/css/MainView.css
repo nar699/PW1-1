@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(206, 206, 206);
+
+}
+
+.div-1 {
+    background-color: #ffffff;
+    width: 25%;
+    height: 100vh;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+.boton-personalizado-4 {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 40px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color:#005BBB;
+    border-color: #d8d8d8;
+    border-radius: 5px;
+}
