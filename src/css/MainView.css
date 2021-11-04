@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(206, 206, 206);
+    background-color: rgba(222,220,231,255)
+    ;
 
 }
 
@@ -25,7 +26,47 @@ body {
     padding-bottom: 15px;
     margin-left: 10%;
     margin-right: 10%;
-    background-color:#005BBB;
+    background-color:#6247aa;
     border-color: #d8d8d8;
     border-radius: 5px;
 }
+
+/*Copiada del harry potter*/
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #dedce7
+    ;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#searchEngine {
+    position: relative;
+}
+
+#searchEngine::after {
+    content: '🔍';
+    position: absolute;
+    top: 7px;
+    right: 15px;
+}
+
+
+#tasksList {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+}
+
+/*Hasta aqui copiada del harry potter*/
