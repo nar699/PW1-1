@@ -1,7 +1,6 @@
 body {
-    background-color: rgba(222,220,231,255)
-    ;
-
+    background-color: #E5E5E5;
+    font-family: Roboto, medium;
 }
 
 .div-1 {
@@ -40,14 +39,14 @@ body {
     border: none;
     align-items: center;
     justify-content: center;
-    background-color: gray;
-    color: honeydew;
+    background-color: #AAA1C8;
+    color: rgb(0, 0, 0);
     border-radius: 5px;
    
 }
 #SelectAll:hover{
-    background-color: honeydew;
-    color: rgb(0, 0, 0);}
+    color: honeydew;
+    background-color: #6247AA;}
 
 
 /*Copiada del harry potter*/

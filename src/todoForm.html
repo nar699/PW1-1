@@ -11,25 +11,68 @@
 	<link href="css/todoForm.css" type="text/css" rel="stylesheet" />
 	<link href="css/normalize.css" media="(orientation:portrait) and (orientation:landscape)" type="text/css"
 		rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
-	<div class="div-tF">
+	<div class="div-completo">
+		<div class="fotoGran">
+			<img src="media/img/Rectangle 15.png" id="fotoGran" alt="1">
+		</div>
+		<div class="fotos">
+			<picture>
+				<img src="media/img/Rectangle 15.png" alt="1">
+				<img src="media/img/Rectangle 16.png" alt="1">
+				<img src="media/img/Rectangle 17.png" alt="1">
+				<img src="media/img/Rectangle 18.png" alt="1">
+				<img src="media/img/Rectangle 19.png" alt="1">
+				<img src="media/img/Rectangle 20.png" alt="1">
+			</picture>
+		</div>
+		<form action="MainView.html">
+		
+			<div class="title">
+				<label> Title<input type="text" id="title" /></label>
+				
 
-		<form action="final">
-			<p>
-				<input type="checkbox" name="chec[]" id="checkbox1" checked=""><label for="checkbox1">Completed</label>
-				<a class="boton-personalizado-cancel" href="MainView.html">Cancel</a>
-				<a class="boton-personalizado-accept" href="MainView.html" >Accept</a>
-			</p>
+				
+			</div>
+			<div class="deadline">
+				<label>Deadline<input type="date" id="date" /></label>
+			</div>
 
+			<div class="category">
+				<label for="category"><b>Category</b></label>
+				<select name="category" id="category">
+					<option value="">Select category</option>
+					<option value="">la 2</option>
+					<option value="">la 3</option>
+					<option value="">la 4</option>
+				</select>
+			</div>
+
+
+			<div class="description">
+				<label for="text"><b>Description</b></label>
+				
+				<input type="text"id="text" >
+			</div>
+
+			<div class="checkbox1">
+				<label><input type="checkbox" name="chec[]" id="checkbox1" checked="">Completed</label>
+			</div>
+
+
+			<div class="submit-cancel" >
+				<input type="submit" name="SelectAll" id="submit-cancel" value="Cancel" /> 
+			</div>
+			<div class="submit-accept">
+				<input type="submit" name="SelectAll" id="submit-accept" value="Accept" />
+			</div>
 
 		</form>
-			
-		
-
-
+		<script src="js/pages/todoForm.js"></script>
 	</div>
 </body>
 
