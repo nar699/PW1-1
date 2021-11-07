@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1080, height=1920,initial-scale=1.0" />
     <meta name="author" content="Narcis Cisquella Carbonell">
-    <link href="css/MainView.css" type="text/css" rel="stylesheet" />
+    <link href="css/pages/MainView.css" type="text/css" rel="stylesheet" />
     <link href="css/normalize.css" media="(orientation:portrait) and (orientation:landscape)" type="text/css"
         rel="stylesheet" />
-        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>Document</title>
 
 
@@ -17,13 +17,22 @@
 
 <body>
     <div class="div-1">
-        <p><img src="media/img/logo-todo-app.svg" alt="logo"></p>
-        <a class="boton-personalizado-4" href="todoForm.html">Add TODO</a>
+        <p><img src="media/img/image 2.png" alt="logo"></p>
+        <a class="boton-addTodo" href="todoForm.html">Add TODO</a>
         <div id="task-list-container"></div>
     </div>
     <div class="div-2">
-        <div id="searchEngine">
-            <input type="button" name="SelectAll" id="SelectAll" value="Select all"/>
+        <div class="All-duties">
+            <img src="media/img/list-status 1.png" alt="logo">
+                <h1>All duties</h1> 
+        </div>
+        <div class="Select">
+            <input type="button" name="SelectAll" id="SelectAll" value="Select all" />
+        <img src="media/img/check 1.png" alt="logo">
+        <img src="media/img/check 1.png" alt="logo">
+        </div>
+        
+        <div class="searchEngine">
             <input type="text" name="searchBar" id="searchBar" />
         </div>
         <ul id="tasksList"></ul>

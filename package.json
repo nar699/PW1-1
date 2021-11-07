@@ -1,0 +1,29 @@
+{
+  "name": "pw1-1",
+  "version": "0.0.0",
+  "description": "Practica 1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "prebuild": "rm -rf ./dist",
+    "build": "node build/build.js",
+    "dev:build-watch": "node build/build-watch.js",
+    "dev:livereload": "node build/liverload.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "standard": "^16.0.4"
+  },
+  "devDependencies": {
+    "check-html-links": "^0.2.3",
+    "html-minifier": "^4.0.0",
+    "clean-css": "^5.2.1",
+    "esbuild": "^0.13.4",
+    "fs-extra": "^10.0.0"
+  }
+}
