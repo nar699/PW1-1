@@ -1,33 +1,38 @@
-class Task{
-    constructor(image,title,deadline,category,description,completed,error){
-        this.image = image;
-        this.title = title;
-        this.deadline = deadline;
-        this.category = category;
-        this.description = description;
-        this.completed = completed;
-        this.error = error;
-    }
-}
+var taskList = [];
+//localStorage.removeItem('localTaskList');
+taskList = getTaskList();
 
 
-class TaskManager {
-    constructor(){
-      this.tasks = []
-    }
-    newTask(image,title,deadline,category,description,completed,error){
-      let p = new Task(image,title,deadline,category,description,completed,error)
-      this.tasks.push(p)
-      return p
-    }
-    get allTasks(){
-      return this.tasks
-    }
+  function newTask(timage,ttitle,tdeadline,tcategory,tdescription,tcompleted,terror){
+    var newTask = {
+      image : timage,
+      title : ttitle,
+      deadline : tdeadline,
+      category : tcategory,
+      description : tdescription,
+      completed : tcompleted,
+      error : terror
+    };
+    
+    taskList.push(newTask)
+    console.log(newTask);
+    storeTasksJSON(taskList);
 
-    get numberOfTasks(){
-        return this.tasks.length
-    }
-    get tasknum(index){
-        return this.tasks[index];
-    }
   }
+
+  function getTaskList(){
+    var storedTasksList= localStorage.getItem('localTaskList');
+    if(storedTasksList == null){
+       taskList = [];
+    }
+    else{
+        taskList = JSON.parse(storedTasksList);
+    }
+    return taskList;
+  }
+
+  function storeTasksJSON(taskslist){
+    localStorage.setItem('localTaskList', JSON.stringify(taskslist));
+  }
+
+

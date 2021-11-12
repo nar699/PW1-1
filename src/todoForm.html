@@ -12,7 +12,6 @@
 	<link href="css/normalize.css" media="(orientation:portrait) and (orientation:landscape)" type="text/css"
 		rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<script src="js/pages/todoForm.js"></script>
 </head>
 
 <body>
@@ -23,12 +22,12 @@
 		</div>
 		<div class="fotos">
 			<picture>
-				<img src="media/img/Rectangle 15.png" alt="1">
-				<img src="media/img/Rectangle 16.png" alt="1">
-				<img src="media/img/Rectangle 17.png" alt="1">
-				<img src="media/img/Rectangle 18.png" alt="1">
-				<img src="media/img/Rectangle 19.png" alt="1">
-				<img src="media/img/Rectangle 20.png" alt="1">
+				<input type="image" src="media/img/Rectangle 15.png" alt="1" id="0" onclick="uploadImg(0)">
+				<input type="image" src="media/img/Rectangle 16.png" alt="1" id="1" onclick="uploadImg(1)">
+				<input type="image" src="media/img/Rectangle 17.png" alt="1" id="2" onclick="uploadImg(2)">
+				<input type="image" src="media/img/Rectangle 18.png" alt="1" id="3" onclick="uploadImg(3)">
+				<input type="image" src="media/img/Rectangle 19.png" alt="1" id="4" onclick="uploadImg(4)">
+				<input type="image" src="media/img/Rectangle 20.png" alt="1" id="5" onclick="uploadImg(5)">
 			</picture>
 		</div>
 		<form name = "register" id="form">
@@ -61,7 +60,7 @@
 			</div>
 
 			<div class="checkbox1">
-				<label><input type="checkbox" name="chec[]" id="checkbox1" checked="">Completed</label>
+				<label><input type="checkbox" name="chec[]" id="checkbox1" >Completed</label>
 			</div>
 
 
@@ -69,11 +68,15 @@
 				<input type="submit" name="btnCancell" id="submit-cancel" value="Cancel" /> 
 			</div>
 			<div class="submit-accept">
-				<input type="button" name="btnSubmit" id="submit-accept" value="Accept" onclick="obtainData()" />
+				<input type="reset" name="btnSubmit" id="submit-accept" value="Accept"/>
 			</div>
 
 		</form>
 	</div>
+	<script src="js/components/Image.js"></script>
+	<script src="js/pages/todoForm.js"></script>
+	<script src="js/components/Task.js"></script>
+
 </body>
 
 </html>
