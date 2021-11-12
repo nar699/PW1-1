@@ -1,4 +1,5 @@
 var imgArray = new Array();
+const defaultImg = 0;
 
 imgArray[0] = new Image();
 imgArray[0].src = 'media/img/Rectangle 15.png';
@@ -19,9 +20,13 @@ imgArray[5] = new Image();
 imgArray[5].src = 'media/img/Rectangle 20.png';
 
 function selectImage(imgind){  
- document.getElementById('fotoGran').src = imgArray[imgind].src;
+    document.getElementById('fotoGran').src = imgArray[imgind].src;
 }
 
 function getImage(imgind){
-    return imgArray[imgind];
+    if (imgind == null){
+        return imgArray[defaultImg];
+    }else{
+        return imgArray[imgind];
+    }
 }
