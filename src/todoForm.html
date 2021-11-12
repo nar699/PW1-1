@@ -12,6 +12,7 @@
 	<link href="css/normalize.css" media="(orientation:portrait) and (orientation:landscape)" type="text/css"
 		rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<script src="js/pages/todoForm.js"></script>
 </head>
 
 <body>
@@ -30,31 +31,31 @@
 				<img src="media/img/Rectangle 20.png" alt="1">
 			</picture>
 		</div>
-		<form action="MainView.html">
+		<form name = "register" id="form">
 		
 			<div class="title">
-				<label> Title<input type="text" id="title" /></label>
+				<label> Title<input type="text" id="title" name="title" /></label>
 				
 
 				
 			</div>
 			<div class="deadline">
-				<label>Deadline<input type="date" id="date" /></label>
+				<label>Deadline<input type="date" id="date" name="date" /></label>
 			</div>
 
 			<div class="category">
 				<label for="category"><b>Category</b></label>
 				<select name="category" id="category">
 					<option value="">Select category</option>
-					<option value="">la 2</option>
-					<option value="">la 3</option>
-					<option value="">la 4</option>
+					<option value="2">la 2</option>
+					<option value="3">la 3</option>
+					<option value="4">la 4</option>
 				</select>
 			</div>
 
 
 			<div class="description">
-				<label for="text"><b>Description</b></label>
+				<label for="text" id="description" name="descriptionL"><b>Description</b></label>
 				
 				<input type="text"id="text" >
 			</div>
@@ -65,14 +66,13 @@
 
 
 			<div class="submit-cancel" >
-				<input type="submit" name="SelectAll" id="submit-cancel" value="Cancel" /> 
+				<input type="submit" name="btnCancell" id="submit-cancel" value="Cancel" /> 
 			</div>
 			<div class="submit-accept">
-				<input type="submit" name="SelectAll" id="submit-accept" value="Accept" />
+				<input type="button" name="btnSubmit" id="submit-accept" value="Accept" onclick="obtainData()" />
 			</div>
 
 		</form>
-		<script src="js/pages/todoForm.js"></script>
 	</div>
 </body>
 
