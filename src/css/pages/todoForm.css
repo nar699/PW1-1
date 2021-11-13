@@ -3,7 +3,7 @@ body {
     font-family: Roboto, medium;
 }
 
-.div-completo {
+#container {
     margin: auto;
     width: 946px;
     margin-top: 119px;

@@ -1,4 +1,3 @@
-import Observer from "../lib/Observer";
 
 class List extends Observer {
   createMarkup(state) {
