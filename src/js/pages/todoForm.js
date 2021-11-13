@@ -1,5 +1,6 @@
 document.getElementById('submit-accept').addEventListener('click', saveTask);
 var ImgSelected;
+drawCategoryList();
 
 function saveTask(){
 
@@ -10,32 +11,22 @@ function saveTask(){
     var tcompleted = document.getElementById('checkbox1').checked;
     newTask(getImage(ImgSelected),ttitle,tdeadline,tcategory,tdesciption,tcompleted);
     sendToTask();
+    drawCategoryList();
 }
-/*
+
 function drawCategoryList(){
     var list = getCategoryList();
     select = document.getElementById('category');
     select.innerHTML="";
 
     for(var i = 0; i < list.length; i++){
-        var row = select.insertRow(i);
-        
-        optionCell = row.insertCell(2);
-
-        colorCell.innerHTML = list[i].color;
-        nameCell.innerHTML = list[i].name;
-
-        var inputButton = document.createElement('input');
-        inputButton.type = 'button';
-        inputButton.value = 'X';
-        inputButton.id = list[i].id;
-        inputButton.addEventListener('click', function() { deleteCategory(this.id)}); 
-        
-        buttonCell.appendChild(inputButton);
-        tbody.appendChild(row);
+        var option = document.createElement("option");
+        option.value = list[i].name;
+        option.text = list[i].name;
+        select.appendChild(option);
     }
 }
-*/
+
 function sendToTask(){
     window.location.href="index.html";
 }

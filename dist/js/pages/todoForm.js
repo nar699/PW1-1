@@ -1,2 +1,0 @@
-(()=>{document.getElementById("submit-accept").addEventListener("click",l);var a;function l(){var e=document.getElementById("title").value,t=document.getElementById("date").value,n=document.getElementById("category").value,d=document.getElementById("text").value,c=document.getElementById("checkbox1").checked;newTask(getImage(a),e,t,n,d,c),o()}function o(){window.location.href="index.html"}})();
-//# sourceMappingURL=todoForm.js.map
