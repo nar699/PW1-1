@@ -30,13 +30,10 @@
 				<input type="image" src="media/img/Rectangle 20.png" alt="1" id="5" onclick="uploadImg(5)">
 			</picture>
 		</div>
-		<form name = "register" id="form">
-		
+		<form name="register" id="form">
+
 			<div class="title">
 				<label> Title<input type="text" id="title" name="title" /></label>
-				
-
-				
 			</div>
 			<div class="deadline">
 				<label>Deadline<input type="date" id="date" name="date" /></label>
@@ -55,20 +52,20 @@
 
 			<div class="description">
 				<label for="text" id="description" name="descriptionL"><b>Description</b></label>
-				
-				<input type="text"id="text" >
+
+				<input type="text" id="text">
 			</div>
 
 			<div class="checkbox1">
-				<label><input type="checkbox" name="chec[]" id="checkbox1" >Completed</label>
+				<label><input type="checkbox" name="chec[]" id="checkbox1">Completed</label>
 			</div>
 
 
-			<div class="submit-cancel" >
-				<input type="submit" name="btnCancell" id="submit-cancel" value="Cancel" /> 
+			<div class="submit-cancel">
+				<input type="reset" name="btnCancell" id="submit-cancel" value="Cancel" onclick="sendToTask()" />
 			</div>
 			<div class="submit-accept">
-				<input type="reset" name="btnSubmit" id="submit-accept" value="Accept"/>
+				<input type="reset" name="btnSubmit" id="submit-accept" value="Accept" />
 			</div>
 
 		</form>
