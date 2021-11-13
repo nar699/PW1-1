@@ -1,11 +1,13 @@
+const config = require('./config');
+
 const express = require('express')
+
 const app = express()
-const PORT = 3000
+const PORT = config.express.port
 
-app.use(express.static('dist'))
-
+app.use(express.static('./dist/'))
 
 app.listen(PORT, function (err) {
-  if (err) console.log(err)
-  console.log('Server listening on PORT', PORT)
+    if (err) console.log(err)
+    console.log('Server listening on PORT', PORT)
 })
