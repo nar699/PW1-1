@@ -20,6 +20,30 @@
         <p><img src="media/img/image 2.png" alt="logo"></p>
         <a class="boton-addTodo" href="todoForm.html">Add TODO</a>
         <div id="task-list-container"></div>
+        <div>
+            <form name="createCategory" id="createCategory">
+                <div class="color">
+                    <label for="color"></label>
+                    <select name="color" id="color">
+                        <option value="Red"></option>
+                        <option value="Yellow">&#xf04d;Yellow</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Gray">Gray</option>
+                        <option value="Black">Black</option>
+    
+                    </select>
+                </div>
+                <div class="categoryName">
+                    <label> <input type="text" id="catName" name="catName" /></label>
+                </div>
+                
+                <div class="submit-category">
+                    <input type="reset" name="btnSubmit" id="submit-category" value="✓" />
+                </div>
+            </form>
+        </div>
+
     </div>
     <div class="div-2">
         <div class="All-duties">
@@ -37,30 +61,7 @@
         </div>
         <ul id="tasksList"></ul>
     </div>
-    <div>
-        <form name="createCategory" id="form">
-            <div class="color">
-                <label for="color"></label>
-                <select name="color" id="color">
-                    <option value="Red">Red</option>
-                    <option value="Yellow">Yellow</option>
-                    <option value="Green">Green</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Gray">Gray</option>
-                    <option value="Black">Black</option>
-
-                </select>
-            </div>
-            <div class="categoryName">
-                <label> <input type="text" id="catName" name="catName" /></label>
-            </div>
-            
-            <div class="submit-category">
-                <input type="reset" name="btnSubmit" id="submit-category" value="✓" />
-            </div>
-        </form>
-        
-    </div>
+    
     <div class="container">
         <table class="categoryTable" id="categoryTable">
             <tbody id="catTableBody">

@@ -42,7 +42,7 @@ select,
     padding-left: 22px;
 }
 
-.fotos img {
+input[type=image] {
     width: 58px;
     height: 58px;
     left: 426px;
@@ -105,7 +105,7 @@ select {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    line-height: 28px;
+    line-height: 5px;
     font-size: 24px;
     width: 240px;
     height: 56px;
@@ -119,11 +119,10 @@ select {
 }
 
 
-
 input[type=text],
 input[type=date] {
     margin-top: 13PX;
-    
+    text-indent:10px;
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
@@ -138,7 +137,7 @@ input[type=date] {
 }
 
 #text {
-    margin-top: 11px;
+    margin-top: 13px;
     width: 945px;
     height: 191px;
     background-color: rgba(171, 162, 200,0.25);
@@ -146,12 +145,14 @@ input[type=date] {
     font-style: normal;
     font-size: 24px;
     line-height: 28px;
+    text-indent:60px;
+    vertical-align: text-top;  
     border:none;
     border-radius: 5px;
 
 }
 
-input[type=submit] {
+input[type=reset] {
     border:none;
     border-radius: 5px;
     background-color: rgba(171, 162, 200,0.25);
