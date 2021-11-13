@@ -9,7 +9,7 @@
     "build": "node build/build.js",
     "dev:build-watch": "node build/build-watch.js",
     "dev:livereload": "node build/livereload.js",
-    "tot":"del /S /Q dist && node build/build.js && node app.js"
+    "tot": "del /S /Q dist && node build/build.js && node app.js"
   },
   "author": "",
   "license": "ISC",
