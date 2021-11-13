@@ -38,8 +38,16 @@ function storeCategoriesJSON(categorieslist) {
 
 function proceedDelete(id){
   list = getCategoryList();
-  list.splice(id,id+1);
-  storeCategoriesJSON(list);
+  console.log(id);
+  list.splice(id,1);
+  renameID(list)
   categoryList = getCategoryList();
   console.log(categoryList.length);
+}
+
+function renameID(list){
+  for(var i = 0; i < list.length; i++){
+    list[i].id = i;
+  }
+  storeCategoriesJSON(list);
 }
