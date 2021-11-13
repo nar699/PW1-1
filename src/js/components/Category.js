@@ -2,7 +2,7 @@
 
 var categoryList = [];
 categoryList = getCategoryList();
-localStorage.removeItem('localCategoryList');
+//localStorage.removeItem('localCategoryList');
 
 function newCategory(catname, catcolor) {
   var newCategory = {
