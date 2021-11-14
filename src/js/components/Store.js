@@ -1,5 +1,5 @@
 /*Classe que contindra la llista de totes les tasques*/ 
-
+//autors
 export class Store {
     #tasks = {};
     #observers = [];
