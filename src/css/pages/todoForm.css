@@ -152,7 +152,7 @@ input[type=date] {
 
 }
 
-input[type=reset] {
+input[type=submit] {
     border:none;
     border-radius: 5px;
     background-color: rgba(171, 162, 200,0.25);
