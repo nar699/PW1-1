@@ -99,9 +99,8 @@ export class IndexView {
         const searchBar = document.getElementById("searchBar");
 
         searchBar.addEventListener('keyup', (event) => {
-            const searchString = event.target.value.toLowerCase();
+            const searchString = e.target.value.toLowerCase();
 
-            const filteredList
 
 
 

@@ -81,6 +81,61 @@ input[type="checkbox"]{
     background-color:#6247aa;
     border-color: #d8d8d8;
     border-radius: 5px;
+    margin-top: 34px;
+}
+
+#FotoGran{
+margin-left:12px;
+margin-top: 42px;
+width: 111px;
+height: 111px;
+
+}
+
+
+#icono1{
+    float: left;
+    margin-top: 62px;
+    margin-right: 20px;
+    margin-left:25px ;
+}
+#textToday{
+    float: left;
+    margin-top: 57px;
+    margin-right: 75%px;
+}
+
+#icono2{
+    float: left;
+    margin-top: 100px;
+    margin-left: -105px;
+}
+#allDuties{
+    float: left;
+    margin-top: 100px;
+    margin-left: -65px;
+    
+}
+#icono3{
+    float: left;
+    margin-top: 140px;
+    margin-left: -140px;
+}
+#categories{
+    float: left;
+    margin-top: 140px;
+    margin-left: -100px;
+  
+}
+#categories,
+#allDuties,
+#textToday{
+    font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+
 }
 
 
@@ -139,13 +194,50 @@ margin-top: 34px;
 
 
 
-option{
-    width: 10px; 
-     height: 100px; 
-     border:none;
-     background: rgba(170, 161, 200, 0.25);
+#color{
+    float: left;
+    padding-left: 23px;
+    background-color: rgba(170, 161, 200, 0.25);
+    border:none;
+    border-radius: 5px;
+    
 }
 
+#categoryName{
+    float: left;
+padding-left:8px ;
+
+
+}
+#catName{
+    background-color: rgba(170, 161, 200, 0.25);
+    border:none;
+    border-radius: 5px;
+}
+#submitCategoryButton{
+    float: left;
+    padding-left:8px ;
+    background-color: rgba(170, 161, 200, 0.25);
+    border:none;
+    border-radius: 5px;
+
+}
+#createCategory{
+    display: block;
+    margin-top: 340px;
+    padding-left:8px 
+  
+}
+#submitCat{
+    padding-left: 100px;
+}
+#catTableDiv{
+    padding-top: 35px;
+    display: block;
+    padding-left: 66px;
+    margin-top: 240px;
+    
+}
 
 /*Hasta harry*/
 
