@@ -1,7 +1,7 @@
 
 export class IndexView {
     #container1;
-    #taskListNode2;
+    #taskListNode;
 
     #store;
 
@@ -69,7 +69,7 @@ export class IndexView {
 
         
       
-        
+        /*
         document.getElementByID("buttonSelectAll").addEventListener("click", (event) => {
             event.preventDefault();
 
@@ -85,7 +85,7 @@ export class IndexView {
                 this.#removeTask(taskId);
             }
             
-        });
+        });*/
         
         return listItemNode;
     }
@@ -93,7 +93,7 @@ export class IndexView {
     #addTaskToList(task) {
         let taskNode = this.#createTask(task);
 
-        this.#taskListNode2.appendChild(taskNode);
+        this.#taskListNode.appendChild(taskNode);
     }
 
     #removeTask(taskId) {
@@ -109,11 +109,11 @@ export class IndexView {
         let parteSuperior1 = document.createElement("div");
         parteSuperior1.setAttribute("class", "parteSuperior1");
 
-        let iconoDuties = document.createElement("src");
-        iconoDuties.setAttribute("src","'media/img/list-status 1.png");
+        let iconoDuties = document.createElement("img");
+        iconoDuties.setAttribute("src","media/img/calendar 1.svg");
         iconoDuties.setAttribute("id","statusImage");
-        iconoDuties.setAttribute("width","500");
-        iconoDuties.setAttribute("height","600");
+        iconoDuties.setAttribute("width","24");
+        iconoDuties.setAttribute("height","24");
         parteSuperior1.appendChild(iconoDuties);
 
         let duties = document.createElement("h1");
@@ -143,19 +143,17 @@ export class IndexView {
 
     
 
-
-
-        if (this.#taskListNode2 !== undefined) {
-            this.#container1.removeChild(this.#taskListNode2);
+        if (this.#taskListNode !== undefined) {
+            this.#container1.removeChild(this.#taskListNode);
         }
 
 
-        this.#taskListNode2 = document.createElement("div");
-        this.#taskListNode2.setAttribute("class", "task-list");
+        this.#taskListNode = document.createElement("div");
+        this.#taskListNode.setAttribute("class", "task-list");
 
         this.#store.getTask().forEach((task) => this.#addTaskToList(task));
         
 
-        this.#container1.appendChild(this.#taskListNode2);
+        this.#container1.appendChild(this.#taskListNode);
     }
 }

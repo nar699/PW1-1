@@ -58,6 +58,7 @@ export class Index2View {
         // Imatge 
         let img = document.createElement("img");
         img.setAttribute("alt", "logo");
+        img.setAttribute("id", "FotoGran");
         img.setAttribute("src", this.#imgTodo);
         div1.appendChild(img);
 
@@ -76,9 +77,39 @@ export class Index2View {
         div1.appendChild(boton_addTodo);
         
         let divaso = document.createElement("div"); 
+        divaso.setAttribute("id","divaso")
         div1.appendChild(divaso);
 
         //Today, All duties i Categories.
+        let divaso1 = document.createElement("div"); 
+        divaso1.setAttribute("id","divaso1")
+        divaso.appendChild(divaso1);
+
+        let divaso2 = document.createElement("div"); 
+        divaso2.setAttribute("id","divaso2")
+        divaso.appendChild(divaso2);
+
+        let divaso3 = document.createElement("div"); 
+        divaso3.setAttribute("id","divaso3")
+        divaso.appendChild(divaso3);
+
+        let icono1 = document.createElement("img");
+        icono1.setAttribute("src","media/img/Vector.svg");
+        icono1.setAttribute("id","icono1");
+        icono1.setAttribute("alt","icono1");
+
+        let icono2 = document.createElement("img");
+        icono2.setAttribute("src","media/img/calendar 1.svg");
+        icono2.setAttribute("id","icono2");
+        icono2.setAttribute("alt","icono2");
+
+        let icono3 = document.createElement("img");
+        icono3.setAttribute("src","media/img/shape-outline 1.svg");
+        icono3.setAttribute("id","icono3");
+        icono3.setAttribute("alt","icono3");
+
+       
+
         let h3_today = document.createElement("h3");
         h3_today.innerHTML="Today";
         h3_today.setAttribute("id","textToday")
@@ -89,9 +120,22 @@ export class Index2View {
         let h3_categories = document.createElement("h3");
         h3_categories.innerHTML="Categories";
         h3_categories.setAttribute("id","categories")
-        divaso.appendChild(h3_today);
-        divaso.appendChild(h3_allduties);
-        divaso.appendChild(h3_categories);
+       
+
+
+
+        divaso1.appendChild(icono1);
+        divaso1.appendChild(h3_today);
+        
+        divaso2.appendChild(icono2);
+        divaso2.appendChild(h3_allduties);
+        
+        divaso3.appendChild(icono3);
+        divaso3.appendChild(h3_categories);
+
+        divaso.appendChild(divaso1);
+        divaso.appendChild(divaso2);
+        divaso.appendChild(divaso3);
 
         // Form
         this.#indexFormNode = document.createElement("form");
