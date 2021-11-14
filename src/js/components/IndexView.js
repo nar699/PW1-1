@@ -1,3 +1,4 @@
+
 export class IndexView {
     #container;
     #taskListNode;
@@ -12,18 +13,37 @@ export class IndexView {
     #createTask(task) {
         let taskId = task.taskId;
         let titleValue = task.titleValue;
+        let DeadlieValue = task.DeadlieValue;
+        let imageValue = task.DescriptionValue;
+        let DescriptionValue = task.DescriptionValue;
         console.log("entramos")
         
-        let listItemNode = document.createElement("li");
-        listItemNode.innerHTML = "cositas";
-        //listItemNode.setAttribute(`data-product-id`, taskId);
-        //listItemNode.innerHTML = `<strong>Product name</strong>: ${titleValue}`;
-        //listItemNode.setAttribute(`data-product-id`, taskId);
+      
+
+        let listItemNode = document.createElement("div");
+        listItemNode.setAttribute("class", "text");
+
+        let titleP = document.createElement("dt");
+        titleP.innerHTML = `${titleValue}`;
+        listItemNode.appendChild(titleP);
+        
+
+        let DeadlieLabel = document.createElement("dt");
+        DeadlieLabel.innerHTML = `${DeadlieValue}`;
+        listItemNode.appendChild(DeadlieLabel);
+
+        let DescriptionP = document.createElement("dd");
+        DescriptionP.innerHTML = `${DescriptionValue}`;
+        listItemNode.appendChild(DescriptionP);
+
+        
+        let buttonP = document.createElement("dd");
+        listItemNode.appendChild(buttonP);
 
         let deleteButtonNode = document.createElement("button");
         deleteButtonNode.innerHTML = "Delete";
-        listItemNode.appendChild(deleteButtonNode);
-        /*deleteButtonNode.addEventListener("click", (event) => {
+        buttonP.appendChild(deleteButtonNode);
+        deleteButtonNode.addEventListener("click", (event) => {
             event.preventDefault();
 
             // productId reference is enclosed in the callback scope
@@ -32,7 +52,6 @@ export class IndexView {
             // You can also get the prodect id if previously set as a custom attribute
             console.log(event.target.parentNode.getAttribute("data-product-id"));
         });
-*/
         return listItemNode;
     }
 
@@ -51,11 +70,11 @@ export class IndexView {
     }
 
     render() {
-        console.log(this.#store.getTask());
-        /*if (this.#taskListNode !== undefined) {
+
+        if (this.#taskListNode !== undefined) {
             this.#container.removeChild(this.#taskListNode);
-        }*/
-        this.#taskListNode = document.createElement("ul");
+        }
+        this.#taskListNode = document.createElement("dl");
         this.#taskListNode.setAttribute("id", "product-list");
 
         this.#store.getTask().forEach((task) => this.#addTaskToList(task));

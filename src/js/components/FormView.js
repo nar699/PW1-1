@@ -3,6 +3,7 @@ import{Task} from "../components/Task.js";
 export class FormView {
     #container;
 
+
     #taskFormNode;
     #image = "../media/img/Rectangle 15.png";
     #taskTitle = {};
@@ -44,7 +45,7 @@ export class FormView {
             let task = new Task(taskId, titleValue,DeadlieValue,imageValue/*,CategoryValue*/,DescriptionValue);
             this.#store.addTask(task);
             console.log(this.#store.getTask());
-            //window.location.href="index.html";
+            window.location.href="index.html";
             
         });
     }
