@@ -21,6 +21,25 @@ export class Index2View {
         node.addEventListener("click", (event) => {
             event.preventDefault();
 
+            let nameValue = document.getElementById('catName').value;
+            let colorValue = document.getElementById('color').value;
+            let id = (this.#CatList.getCategory().length || 0) + 1;
+            let cat = new Category(id,nameValue,colorValue);
+            this.#CatList.addCategory(cat);
+            document.getElementById('catName').value = "";
+            this.render2();
+            console.log(cat);
+        });
+    }
+
+    #addEventListenerToCatList(node,buttonId){
+        node.addEventListener("click", (event) => {
+            event.preventDefault();
+            console.log(buttonId);
+            this.#CatList.removeCategory(buttonId);
+            console.log(this.#CatList.getCategory());
+
+            this.render2();
 
         });
     }
@@ -142,7 +161,35 @@ export class Index2View {
         catTable.appendChild(catTableBody);
         catTableDiv.appendChild(catTable);
         div1.appendChild(catTableDiv);
+        this.#addEventListenerToFormNode(btnSubmit);
 
+        this.render2();
+        }
+
+        render2(){
+            var list = this.#CatList.getCategory();
+            let tbody = document.getElementById('catTableBody');
+            tbody.innerHTML="";
+        
+            for(var i = 0; i < list.length; i++){
+                let row = tbody.insertRow(i),
+                buttonCell = row.insertCell(0),
+                colorCell = row.insertCell(1),
+                nameCell = row.insertCell(2);
+        
+                colorCell.innerHTML = list[i].colorValue;
+                nameCell.innerHTML = list[i].nameValue;
+        
+                var inputButton = document.createElement('input');
+                inputButton.type = 'button';
+                inputButton.value = 'X';
+                inputButton.setAttribute("id",list[i].categoryId);
+                this.#addEventListenerToCatList(inputButton, inputButton.id);
+                
+                buttonCell.appendChild(inputButton);
+                tbody.appendChild(row);
+
+        }
 
         /*
         // Categoria

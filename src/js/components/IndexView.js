@@ -114,6 +114,7 @@ export class IndexView {
     }
 
     render() {
+        
 
         if (this.#taskListNode2 !== undefined) {
             this.#container1.removeChild(this.#taskListNode2);
