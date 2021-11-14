@@ -60,6 +60,7 @@ export class FormView {
             if (CategoryValue == 'none'){
                 this.#error.innerHTML = "Category required.";
                 this.update();
+                return;
             }
             
             //es crea una tasca i s'afegeix
