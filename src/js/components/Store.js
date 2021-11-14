@@ -1,6 +1,10 @@
+/*Classe que contindra la llista de totes les tasques*/ 
+
 export class Store {
     #tasks = {};
     #observers = [];
+
+    /*Constructor que consultara el localStorage per importar les tasques*/ 
 
     constructor(){
         
@@ -11,6 +15,7 @@ export class Store {
         this.#tasks =JSON.parse(localStorage.getItem('task'));
     }
 
+    /*S'afegeix una tasca al local storage i a la llista de tasques*/
 
     addTask(task) {
         
@@ -20,11 +25,15 @@ export class Store {
         console.log(this.#tasks);
     }
 
+     /*S'elimina una tasca al local storage i a la llista de tasques*/
+
     removeTask(taskId) {
         delete this.#tasks[taskId];
         localStorage.setItem('task',JSON.stringify(this.#tasks));
         this.#notifyObservers();
     }
+
+    /*S'envia la llista de tasques*/
 
     getTask() {
         this.#tasks = JSON.parse(localStorage.getItem('task'));

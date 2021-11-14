@@ -1,3 +1,5 @@
+/*Classe que contindra la informacio de les tasques*/ 
+
 export class Task {
   constructor(taskId, titleValue,DeadlieValue,imageValue,CategoryValue,DescriptionValue,Completed){
       this.taskId = taskId;
