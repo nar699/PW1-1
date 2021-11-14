@@ -3,7 +3,6 @@ export class CatList {
     #observers = [];
 
     constructor(){
-        //localStorage.removeItem('cat');
         var storedCategories = JSON.parse(localStorage.getItem('cat'));
         if(storedCategories == undefined){
             localStorage.setItem('cat', JSON.stringify(this.#categories) )
