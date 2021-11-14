@@ -7,6 +7,9 @@ import {Store} from "../components/Store.js";
 document.addEventListener("DOMContentLoaded",()=>{
     
     let store = new Store();
+
     let indexView = new IndexView(document.getElementById("container"), store)
     indexView.render();
+
+    
 });

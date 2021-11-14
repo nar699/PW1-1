@@ -1,4 +1,5 @@
 import{Task} from "../components/Task.js";
+import{Image} from "../components/Image.js";
 
 export class FormView {
     #container;
@@ -14,6 +15,8 @@ export class FormView {
     #taskCompleted = {};
 
     #store;
+    #ImgSelected = 0;
+    img = new Image();
 
     constructor(container, store) {
         this.#store = store;
@@ -25,7 +28,8 @@ export class FormView {
             event.preventDefault();
             let titleValue = this.#taskTitle["input"].value;
             let DeadlieValue = this.#taskDeadline["input"].value;
-            let imageValue = this.#image;
+            let imageValue = this.img.getImage(this.#ImgSelected); 
+                
            // let CategoryValue = this.#taskcategory["input"].value;
             let DescriptionValue = this.#taskDescription["input"].value;
 
@@ -40,14 +44,22 @@ export class FormView {
             // A workaround would be to store the last Id,
             // every time a product is created, generate the next id by: lastId + 1
             const taskId = (this.#store.getTask().length || 0) + 1;
-
             let task = new Task(taskId, titleValue,DeadlieValue,imageValue/*,CategoryValue*/,DescriptionValue);
             this.#store.addTask(task);
-            console.log(this.#store.getTask());
+            this.#clearProductForm();
+
             //window.location.href="index.html";
             
         });
     }
+
+    #clearProductForm() {
+        this.#taskTitle["input"].value= "";
+        this.#taskDeadline["input"].value= "";
+        this.#taskDescription["input"].value= "";
+    }
+
+
     #addEventListenerToCancelNode(node) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
@@ -56,6 +68,17 @@ export class FormView {
     }
   
 
+    #addEventListenerToChangeImageNode(node,id) {
+        node.addEventListener("click", (event) => {
+            event.preventDefault();
+            
+            var newSrc = this.img.selectImage(id);
+            document.getElementById('fotoGran').src = newSrc;
+            this.#ImgSelected = id; 
+            console.log(newSrc);
+            this.update();
+        });
+    }
     
     update() {
         this.render;
@@ -69,9 +92,8 @@ export class FormView {
 
         let imgFotoGran = document.createElement("img");
 
-        imgFotoGran.src = this.#image;
         imgFotoGran.setAttribute("id", "fotoGran");
-        imgFotoGran.src = this.#image;
+        imgFotoGran.src = this.img.selectImage(this.#ImgSelected);
         fotoGran.appendChild(imgFotoGran);
 
 
@@ -88,7 +110,7 @@ export class FormView {
         input0.setAttribute("src","media/img/Rectangle 15.png");
         input0.setAttribute("alt","0");
         input0.setAttribute("id","0");
-        input0.setAttribute("onclick","uploadImg(0)");
+        this.#addEventListenerToChangeImageNode(input0,input0.id);
         picture.appendChild(input0);
 
         let input1 = document.createElement("input");
@@ -96,7 +118,7 @@ export class FormView {
         input1.setAttribute("src","media/img/Rectangle 16.png");
         input1.setAttribute("alt","1");
         input1.setAttribute("id","1");
-        input1.setAttribute("onclick","uploadImg(1)");
+        this.#addEventListenerToChangeImageNode(input1,input1.id);
         picture.appendChild(input1);
 
 
@@ -105,7 +127,7 @@ export class FormView {
         input2.setAttribute("src","media/img/Rectangle 17.png");
         input2.setAttribute("alt","2");
         input2.setAttribute("id","2");
-        input2.setAttribute("onclick","uploadImg(2)");
+        this.#addEventListenerToChangeImageNode(input2,input2.id);
         picture.appendChild(input2);
 
         let input3 = document.createElement("input");
@@ -113,7 +135,7 @@ export class FormView {
         input3.setAttribute("src","media/img/Rectangle 18.png");
         input3.setAttribute("alt","3");
         input3.setAttribute("id","3");
-        input3.setAttribute("onclick","uploadImg(3)");
+        this.#addEventListenerToChangeImageNode(input3,input3.id);
         picture.appendChild(input3);
 
         let input4 = document.createElement("input");
@@ -121,7 +143,7 @@ export class FormView {
         input4.setAttribute("src","media/img/Rectangle 19.png");
         input4.setAttribute("alt","4");
         input4.setAttribute("id","4");
-        input4.setAttribute("onclick","uploadImg(4)");
+        this.#addEventListenerToChangeImageNode(input4,input4.id);
         picture.appendChild(input4);
 
         let input5 = document.createElement("input");
@@ -129,7 +151,7 @@ export class FormView {
         input5.setAttribute("src","media/img/Rectangle 20.png");
         input5.setAttribute("alt","5");
         input5.setAttribute("id","5");
-        input5.setAttribute("onclick","uploadImg(5)");
+        this.#addEventListenerToChangeImageNode(input5,input5.id);
         picture.appendChild(input5);
         
 
@@ -251,7 +273,7 @@ export class FormView {
 
         this.#taskCancel = document.createElement("input");
         this.#taskCancel.setAttribute("id", "submit-cancel");
-        this.#taskCancel.setAttribute("type", "reset");
+        this.#taskCancel.setAttribute("type", "submit");
         this.#taskCancel.setAttribute("value", "Cancel");
         this.#addEventListenerToCancelNode(this.#taskCancel);
         cancel.appendChild(this.#taskCancel);
@@ -260,24 +282,15 @@ export class FormView {
 
         let submit = document.createElement("div");
         submit.setAttribute("class", "submit-accept");
-        this.#taskFormNode.appendChild(submit);
 
         this.#taskSubmit= document.createElement("input");
         this.#taskSubmit.setAttribute("id", "submit-accept");
-        this.#taskSubmit.setAttribute("type", "reset");
+        this.#taskSubmit.setAttribute("type", "submit");
         this.#taskSubmit.setAttribute("value", "Accept");
         this.#addEventListenerToSubmitNode(this.#taskSubmit);
         submit.appendChild(this.#taskSubmit);
 
-
-
-
-
-
-
-
-
-
+        this.#taskFormNode.appendChild(submit);
 
     }
 }

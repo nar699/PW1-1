@@ -16,9 +16,9 @@ export class IndexView {
         
         let listItemNode = document.createElement("li");
         listItemNode.innerHTML = "cositas";
-        //listItemNode.setAttribute(`data-product-id`, taskId);
-        //listItemNode.innerHTML = `<strong>Product name</strong>: ${titleValue}`;
-        //listItemNode.setAttribute(`data-product-id`, taskId);
+       // listItemNode.setAttribute(`data-product-id`, taskId);
+       // listItemNode.innerHTML = `<strong>Product name</strong>: ${titleValue}`;
+       // listItemNode.setAttribute(`data-product-id`, taskId);
 
         let deleteButtonNode = document.createElement("button");
         deleteButtonNode.innerHTML = "Delete";
@@ -51,7 +51,6 @@ export class IndexView {
     }
 
     render() {
-        console.log(this.#store.getTask());
         /*if (this.#taskListNode !== undefined) {
             this.#container.removeChild(this.#taskListNode);
         }*/
