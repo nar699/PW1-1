@@ -3,8 +3,6 @@ import{Index2View} from "../components/Index2View.js";
 import {Store} from "../components/Store.js";
 
 
-//import {List} from "../components/List(nidea).js";
-
 //let store = new Store();
 document.addEventListener("DOMContentLoaded",()=>{
     //part dreta
@@ -20,5 +18,5 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-    
+
 });

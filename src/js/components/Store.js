@@ -3,16 +3,12 @@ export class Store {
     #observers = [];
 
     constructor(){
-        //localStorage.removeItem('task');
 
         var storedTasks = JSON.parse(localStorage.getItem('task'));
         if(storedTasks == undefined){
             localStorage.setItem('task', JSON.stringify(this.#tasks) )
          }
         this.#tasks =JSON.parse(localStorage.getItem('task'));
-        console.log("constructor");
-        console.log(this.#tasks);  
-
     }
 
 
@@ -27,7 +23,6 @@ export class Store {
     removeTask(taskId) {
         delete this.#tasks[taskId];
         localStorage.setItem('task',JSON.stringify(this.#tasks));
-        console.log("removed");
         this.#notifyObservers();
     }
 
