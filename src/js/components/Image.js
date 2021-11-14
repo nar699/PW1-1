@@ -1,32 +1,34 @@
-var imgArray = new Array();
-const defaultImg = 0;
+export class Image {
+    #imgArray = new Array();
 
-imgArray[0] = new Image();
-imgArray[0].src = 'media/img/Rectangle 15.png';
+    constructor(){
 
-imgArray[1] = new Image();
-imgArray[1].src = 'media/img/Rectangle 16.png';
+        this.#imgArray[0] = 'media/img/Rectangle 15.png';
+        
+        this.#imgArray[1] = 'media/img/Rectangle 16.png';
+        
+        this.#imgArray[2] = 'media/img/Rectangle 17.png';
+        
+        this.#imgArray[3] = 'media/img/Rectangle 18.png';
+        
+        this.#imgArray[4] = 'media/img/Rectangle 19.png';
+        
+        this.#imgArray[5] = 'media/img/Rectangle 20.png';     
 
-imgArray[2] = new Image();
-imgArray[2].src = 'media/img/Rectangle 17.png';
-
-imgArray[3] = new Image();
-imgArray[3].src = 'media/img/Rectangle 18.png';
-
-imgArray[4] = new Image();
-imgArray[4].src = 'media/img/Rectangle 19.png';
-
-imgArray[5] = new Image();
-imgArray[5].src = 'media/img/Rectangle 20.png';
-
-function selectImage(imgind){  
-    document.getElementById('fotoGran').src = imgArray[imgind].src;
-}
-
-function getImage(imgind){
-    if (imgind == null){
-        return imgArray[defaultImg];
-    }else{
-        return imgArray[imgind];
     }
+
+    selectImage(imgind){  
+        return this.#imgArray[imgind];
+    }
+    
+    getImage(imgind){
+        if (imgind == null){
+            return this.#imgArray[defaultImg];
+        }else{
+            return this.#imgArray[imgind];
+        }
+    }
+
 }
+
+

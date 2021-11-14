@@ -9,7 +9,7 @@ export class Store {
         if(storedTasks == undefined){
             localStorage.setItem('task', JSON.stringify(this.#tasks) )
          }
-        this.#tasks =storedTasks 
+        this.#tasks =JSON.parse(localStorage.getItem('task'));
         console.log("constructor");
         console.log(this.#tasks);  
 
@@ -21,7 +21,7 @@ export class Store {
         this.#tasks[task.taskId] = task;
         localStorage.setItem('task', JSON.stringify(this.#tasks));
         this.#notifyObservers();
-        
+        console.log(this.#tasks);
     }
 
     removeTask(taskId) {
