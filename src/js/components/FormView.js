@@ -1,11 +1,11 @@
-//import{Task} from "../components/Task.js";
+import{Task} from "../components/Task.js";
 
 export class FormView {
     #container;
 
     #taskFormNode;
     #image = "../media/img/Rectangle 15.png";
-    #taskTitleInputNodes = {};
+    #taskTitle = {};
     #taskDeadline = {};
     #taskcategory = {};
     #taskDescription = {};
@@ -13,16 +13,55 @@ export class FormView {
     #taskCancel= {};
     #taskCompleted = {};
 
-    #list;
+    #store;
 
-    constructor(container, list) {
-        this.#list = list;
+    constructor(container, store) {
+        this.#store = store;
         this.#container = container;
     }
+    
+   #addEventListenerToSubmitNode(node) {
+        node.addEventListener("click", (event) => {
+            event.preventDefault();
+            let titleValue = this.#taskTitle["input"].value;
+            let DeadlieValue = this.#taskDeadline["input"].value;
+            let imageValue = this.#image;
+           // let CategoryValue = this.#taskcategory["input"].value;
+            let DescriptionValue = this.#taskDescription["input"].value;
+
+
+            // Guard clause. If productName is empty, don't do anything.
+            if (titleValue.length>50 ) {
+                return;
+            }
+
+            // Be careful that this 'nextId' implementation does not ensure id uniqueness
+
+            // A workaround would be to store the last Id,
+            // every time a product is created, generate the next id by: lastId + 1
+            const taskId = (this.#store.getTask().length || 0) + 1;
+
+            let task = new Task(taskId, titleValue,DeadlieValue,imageValue/*,CategoryValue*/,DescriptionValue);
+            this.#store.addTask(task);
+            console.log(this.#store.getTask());
+            //window.location.href="index.html";
+            
+        });
+    }
+    #addEventListenerToCancelNode(node) {
+        node.addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href="index.html";
+        });
+    }
+  
+
+    
     update() {
         this.render;
     }
     render() {
+        
         //Foto principal
         let fotoGran = document.createElement("div");
         fotoGran.setAttribute("class", "fotoGran");
@@ -108,16 +147,16 @@ export class FormView {
         title.setAttribute("class", "title");
         this.#taskFormNode.appendChild(title);
 
-        this.#taskTitleInputNodes["label"] = document.createElement("label");
+        this.#taskTitle["label"] = document.createElement("label");
         let titleSpan = document.createElement("span");
         titleSpan.innerHTML = "Title";
-        this.#taskTitleInputNodes["label"].appendChild(titleSpan);
-        title.appendChild(this.#taskTitleInputNodes["label"]);
+        this.#taskTitle["label"].appendChild(titleSpan);
+        title.appendChild(this.#taskTitle["label"]);
 
-        this.#taskTitleInputNodes["input"] = document.createElement("input");
-        this.#taskTitleInputNodes["input"].setAttribute("id", "title");
-        this.#taskTitleInputNodes["input"].setAttribute("type", "text");
-        this.#taskTitleInputNodes["label"].appendChild(this.#taskTitleInputNodes["input"]);
+        this.#taskTitle["input"] = document.createElement("input");
+        this.#taskTitle["input"].setAttribute("id", "title");
+        this.#taskTitle["input"].setAttribute("type", "text");
+        this.#taskTitle["label"].appendChild(this.#taskTitle["input"]);
 
 
 
@@ -153,22 +192,18 @@ export class FormView {
         this.#taskcategory["select"].setAttribute("id", "category");
         this.#taskcategory["select"].setAttribute("name", "category");
         category.appendChild(this.#taskcategory["select"]);
-/*
+
         let option1 = document.createElement("option");
-        option1.setAttribute("value", "1");
-        option1.innerHtML = "1";
-        this.#container["selected"].appendChild(option1);
+        let categorySpan1 = document.createElement("span");
+        categorySpan1.innerHTML = "la1"
+        option1.appendChild(categorySpan1);
+        this.#taskcategory["select"].appendChild(option1);
 
         let option2 = document.createElement("option");
-        option2.setAttribute("value", "2");
-        option2.innerHtML = "2";
-        this.#container["selected"].appendChild(option2);
-
-        let option3 = document.createElement("option");
-        option3.setAttribute("value", "3");
-        option3.innerHtML = "3";
-        this.#container["selected"].appendChild(option3);
-        */
+        let categorySpan2 = document.createElement("span");
+        categorySpan2.innerHTML = "la2"
+        option2.appendChild(categorySpan2);
+        this.#taskcategory["select"].appendChild(option2);
         //description
 
         let description = document.createElement("div");
@@ -214,12 +249,12 @@ export class FormView {
         cancel.setAttribute("class", "submit-cancel");
         this.#taskFormNode.appendChild(cancel);
 
-        this.#taskCancel["input"] = document.createElement("input");
-        this.#taskCancel["input"].setAttribute("id", "submit-cancel");
-        this.#taskCancel["input"].setAttribute("type", "reset");
-        this.#taskCancel["input"].setAttribute("value", "Cancel");
-        this.#taskCancel["input"].setAttribute("onclick", "sendToTask()");
-        cancel.appendChild(this.#taskCancel["input"]);
+        this.#taskCancel = document.createElement("input");
+        this.#taskCancel.setAttribute("id", "submit-cancel");
+        this.#taskCancel.setAttribute("type", "reset");
+        this.#taskCancel.setAttribute("value", "Cancel");
+        this.#addEventListenerToCancelNode(this.#taskCancel);
+        cancel.appendChild(this.#taskCancel);
 
         //submit accept
 
@@ -227,11 +262,14 @@ export class FormView {
         submit.setAttribute("class", "submit-accept");
         this.#taskFormNode.appendChild(submit);
 
-        this.#taskSubmit["input"] = document.createElement("input");
-        this.#taskSubmit["input"].setAttribute("id", "submit-accept");
-        this.#taskSubmit["input"].setAttribute("type", "reset");
-        this.#taskSubmit["input"].setAttribute("value", "Accept");
-        submit.appendChild(this.#taskSubmit["input"]);
+        this.#taskSubmit= document.createElement("input");
+        this.#taskSubmit.setAttribute("id", "submit-accept");
+        this.#taskSubmit.setAttribute("type", "reset");
+        this.#taskSubmit.setAttribute("value", "Accept");
+        this.#addEventListenerToSubmitNode(this.#taskSubmit);
+        submit.appendChild(this.#taskSubmit);
+
+
 
 
 

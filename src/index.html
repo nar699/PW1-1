@@ -16,6 +16,12 @@
 </head>
 
 <body>
+    <div id="container">
+        <a class="boton-addTodo" href="todoForm2.html">Add TODO</a>
+    </div>
+    <!--
+
+   
     <div class="div-1">
         <p><img src="media/img/image 2.png" alt="logo"></p>
         <a class="boton-addTodo" href="todoForm2.html">Add TODO</a>
@@ -43,6 +49,17 @@
                 </div>
             </form>
         </div>
+        <script>
+            for(var i = 0; i < list.length; i++){
+            var option = document.createElement("option");
+            option.value = list[i].name;
+            option.text = list[i].name;
+            select.appendChild(option);
+        }
+
+
+        </script>
+        
 
     </div>
     <div class="div-2">
@@ -71,7 +88,8 @@
         </table>
 
     </div>
+     -->
 </body>
-<script src="js/components/Category.js"></script>
-<script src="js/pages/index.js"></script>
+
+<script type="text/javascript" src="js/pages/index.js"></script>
 </html>
