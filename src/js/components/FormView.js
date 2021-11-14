@@ -54,6 +54,12 @@ export class FormView {
                 this.update();
                 return;
             }
+
+            if (CategoryValue == 'none'){
+                this.#error.innerHTML = "Category required.";
+                this.update();
+                return;
+            }
             // Be careful that this 'nextId' implementation does not ensure id uniqueness
 
             // A workaround would be to store the last Id,
