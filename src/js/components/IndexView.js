@@ -17,10 +17,10 @@ export class IndexView {
         let imageValue = task.imageValue;
         let DescriptionValue = task.DescriptionValue;
         console.log("entramos")
-        
+
         let listItemNode = document.createElement("div");
         listItemNode.setAttribute("class", "taskTotal");
-        
+
 
         //parte1
         let checkbox = document.createElement("div");
@@ -28,11 +28,11 @@ export class IndexView {
         listItemNode.appendChild(checkbox);
 
         let checkboxInput = document.createElement("input");
-        checkboxInput.setAttribute("id", "checkbox1");
-        checkboxInput .setAttribute("type", "checkbox");
+        checkboxInput.setAttribute("id", taskId);
+        checkboxInput.setAttribute("type", "checkbox");
         checkbox.appendChild(checkboxInput);
         //button que no se com fer
-        
+
 
         //parte 2
         let parte2 = document.createElement("div");
@@ -40,8 +40,8 @@ export class IndexView {
         listItemNode.appendChild(parte2);
 
         let imageP = document.createElement("img");
-        imageP.setAttribute("src",imageValue);
-        imageP.setAttribute("alt","1");
+        imageP.setAttribute("src", imageValue);
+        imageP.setAttribute("alt", "1");
         imageP.setAttribute("id", "fotoTask");
         parte2.appendChild(imageP);
 
@@ -49,7 +49,7 @@ export class IndexView {
         titleP.setAttribute("id", "titolTask");
         titleP.innerHTML = `${titleValue}`;
         parte2.appendChild(titleP);
-        
+
 
         let DeadlieLabel = document.createElement("h3");
         DeadlieLabel.setAttribute("id", "dateTask");
@@ -62,32 +62,49 @@ export class IndexView {
         parte2.appendChild(DescriptionP);
 
 
-        
+
         let saltoP = document.createElement("div");
         saltoP.setAttribute("class", "saltoP");
         listItemNode.appendChild(saltoP);
 
-        
-      
-        
-        document.getElementByID("buttonSelectAll").addEventListener("click", (event) => {
+
+
+        return listItemNode;
+    }
+
+
+    #addEventListenerToCheck(node) {
+
+        node.addEventListener("click", (event) => {
             event.preventDefault();
 
-            checkboxInput.checked = treu;
-           
-            
+
+
         });
-       
-        document.getElementByID("delebuttonDeletete").addEventListener("click", (event) => {
+    }
+
+    #addEventListenerToRemove(node) {
+
+        node.addEventListener("click", (event) => {
             event.preventDefault();
 
-            if(checkboxInput.checked){
+            if (checkboxInput.checked) {
                 this.#removeTask(taskId);
             }
-            
+
         });
-        
-        return listItemNode;
+    }
+
+
+    #addEventListenerToCheckAll(node) {
+
+        node.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            checkboxInput.checked = true;
+
+
+        });
     }
 
     #addTaskToList(task) {
@@ -105,19 +122,19 @@ export class IndexView {
     }
 
     render() {
-        
+
         let parteSuperior1 = document.createElement("div");
         parteSuperior1.setAttribute("class", "parteSuperior1");
 
         let iconoDuties = document.createElement("src");
-        iconoDuties.setAttribute("src","'media/img/list-status 1.png");
-        iconoDuties.setAttribute("id","statusImage");
-        iconoDuties.setAttribute("width","500");
-        iconoDuties.setAttribute("height","600");
+        iconoDuties.setAttribute("src", "'media/img/list-status 1.png");
+        iconoDuties.setAttribute("id", "statusImage");
+        iconoDuties.setAttribute("width", "500");
+        iconoDuties.setAttribute("height", "600");
         parteSuperior1.appendChild(iconoDuties);
 
         let duties = document.createElement("h1");
-        duties.setAttribute("id","Duties");
+        duties.setAttribute("id", "Duties");
         duties.innerHTML = "Duties";
         parteSuperior1.appendChild(duties);
         this.#container1.appendChild(parteSuperior1);
@@ -126,22 +143,26 @@ export class IndexView {
         parteSuperior2.setAttribute("class", "parteSuperior2");
 
         let buttonSelectAll = document.createElement("button");
-        buttonSelectAll.setAttribute("id","buttonSelectAll");
+        buttonSelectAll.setAttribute("id", "buttonSelectAll");
         buttonSelectAll.innerHTML = "Select all";
+        this.#addEventListenerToCheckAll(buttonSelectAll);
         parteSuperior2.appendChild(buttonSelectAll);
 
         let buttonTick = document.createElement("button");
-        buttonTick.setAttribute("id","buttonTick");
+        buttonTick.setAttribute("id", "buttonTick");
         buttonTick.innerHTML = "✓";
+        this.#addEventListenerToCheck(buttonTick);
         parteSuperior2.appendChild(buttonTick);
 
         let buttonDelete = document.createElement("button");
-        buttonDelete.setAttribute("id","buttonDelete");
+        buttonDelete.setAttribute("id", "buttonDelete");
         buttonDelete.innerHTML = "Delete";
+        this.#addEventListenerToRemove(buttonDelete);
+
         parteSuperior2.appendChild(buttonDelete);
         this.#container1.appendChild(parteSuperior2);
 
-    
+
 
 
 
@@ -154,7 +175,7 @@ export class IndexView {
         this.#taskListNode2.setAttribute("class", "task-list");
 
         this.#store.getTask().forEach((task) => this.#addTaskToList(task));
-        
+
 
         this.#container1.appendChild(this.#taskListNode2);
     }
