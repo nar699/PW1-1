@@ -1,3 +1,4 @@
+//clase que carrega totes les imatges a un array
 export class Image {
     #imgArray = new Array();
 
