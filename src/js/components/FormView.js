@@ -15,7 +15,7 @@ export class FormView {
     #taskSubmit = {};
     #taskCancel = {};
     #taskCompleted = {};
-
+    #error;
     #store;
     #CatList;
 
@@ -36,17 +36,24 @@ export class FormView {
             let imageValue = this.img.getImage(this.#ImgSelected);
             let CategoryValue = document.getElementById('category').value;
             let DescriptionValue = this.#taskDescription["input"].value;
+            let Completed = document.getElementById('checkbox1').checked;
 
             // Guard clause. If productName is empty, don't do anything.
-            if (titleValue.length == 0) {
+            if (titleValue.length == 0 || titleValue.length > 100) {
+                this.#error.innerHTML = "Title required. Maximum 100 characters length.";
+                this.update();
                 return;
             }
 
             if (DeadlieValue == ""){
+                this.#error.innerHTML = "Deadline required.";
+                this.update();
                 return;
             }
 
-            if (DescriptionValue == 0){
+            if (DescriptionValue.length == 0 || DescriptionValue.length > 1000){
+                this.#error.innerHTML = "Description required. Maximum 1.000 characters length.";
+                this.update();
                 return;
             }
             // Be careful that this 'nextId' implementation does not ensure id uniqueness
@@ -54,7 +61,7 @@ export class FormView {
             // A workaround would be to store the last Id,
             // every time a product is created, generate the next id by: lastId + 1
             const taskId = (this.#store.getTask().length || 0) + 1;
-            let task = new Task(taskId, titleValue, DeadlieValue, imageValue, CategoryValue, DescriptionValue);
+            let task = new Task(taskId, titleValue, DeadlieValue, imageValue, CategoryValue, DescriptionValue, Completed);
             this.#store.addTask(task);
             window.location.href = "index.html";
 
@@ -218,11 +225,14 @@ export class FormView {
         this.#taskcategory["select"].setAttribute("id", "category");
         this.#taskcategory["select"].setAttribute("name", "category");
         category.appendChild(this.#taskcategory["select"]);
-        
+
+        let def = document.getElementById("category");
+        def.innerHTML ='<option value="none" selected disabled hidden>Select category</option>';
+ 
         let list = this.#CatList.getCategory();
 
         for (var i = 0; i < list.length; i++) {
-
+            console.log("entro");
             let option = document.createElement("option");
             let categorySpan1 = document.createElement("span");
             categorySpan1.innerHTML = this.#CatList.getCategory()[i];
@@ -230,6 +240,7 @@ export class FormView {
             this.#taskcategory["select"].appendChild(option);
 
         }
+
 
         //description
 
@@ -248,6 +259,11 @@ export class FormView {
         this.#taskDescription["input"].setAttribute("id", "text");
         this.#taskDescription["input"].setAttribute("type", "text");
         description.appendChild(this.#taskDescription["input"]);
+
+        //error
+
+        this.#error = document.createElement("p");
+        this.#taskFormNode.appendChild(this.#error);
 
         //checkbox1
 
