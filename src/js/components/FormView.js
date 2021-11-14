@@ -1,6 +1,7 @@
 import { Task } from "../components/Task.js";
 import { Image } from "../components/Image.js";
 
+//clase que conte tota la view de form
 export class FormView {
     #container;
 
@@ -26,6 +27,7 @@ export class FormView {
         this.#container = container;
     }
 
+    //quan s'apreta el boto d'acceptar es recolliran les dades i s'afegiran a la llista de tasques 
     #addEventListenerToSubmitNode(node) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
@@ -36,7 +38,7 @@ export class FormView {
             let DescriptionValue = this.#taskDescription["input"].value;
             let Completed = document.getElementById('checkbox1').checked;
 
-            // Guard clause. If productName is empty, don't do anything.
+            // comprovacions de la informacio del formulari
             if (titleValue.length == 0 || titleValue.length > 100) {
                 this.#error.innerHTML = "Title required. Maximum 100 characters length.";
                 this.update();
@@ -54,10 +56,13 @@ export class FormView {
                 this.update();
                 return;
             }
-            // Be careful that this 'nextId' implementation does not ensure id uniqueness
 
-            // A workaround would be to store the last Id,
-            // every time a product is created, generate the next id by: lastId + 1
+            if (CategoryValue == 'none'){
+                this.#error.innerHTML = "Category required.";
+                this.update();
+            }
+            
+            //es crea una tasca i s'afegeix
             const taskId = (this.#store.getTask().length || 0) + 1;
             let task = new Task(taskId, titleValue, DeadlieValue, imageValue, CategoryValue, DescriptionValue, Completed);
             this.#store.addTask(task);
@@ -66,13 +71,7 @@ export class FormView {
         });
     }
 
-    #clearProductForm() {
-        this.#taskTitle["input"].value = "";
-        this.#taskDeadline["input"].value = "";
-        this.#taskDescription["input"].value = "";
-    }
-
-
+    //Quan s'apreta el boto de cancell, anira directament al main
     #addEventListenerToCancelNode(node) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
@@ -80,7 +79,7 @@ export class FormView {
         });
     }
 
-
+    //Quan es clica una imatge, la imatge que representa la seleccionada canviara a la s'ha clicat
     #addEventListenerToChangeImageNode(node, id) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
