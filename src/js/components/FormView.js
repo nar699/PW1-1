@@ -1,7 +1,5 @@
 import { Task } from "../components/Task.js";
 import { Image } from "../components/Image.js";
-import { Category } from "./Category.js";
-import { CatList } from "./CatList.js";
 
 export class FormView {
     #container;
@@ -232,7 +230,6 @@ export class FormView {
         let list = this.#CatList.getCategory();
 
         for (var i = 0; i < list.length; i++) {
-            console.log("entro");
             let option = document.createElement("option");
             let categorySpan1 = document.createElement("span");
             categorySpan1.innerHTML = this.#CatList.getCategory()[i];
