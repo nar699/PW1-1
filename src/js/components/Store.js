@@ -3,7 +3,7 @@ export class Store {
     #observers = [];
 
     constructor(){
-
+       // localStorage.removeItem('task');
         var storedTasks = JSON.parse(localStorage.getItem('task'));
         if(storedTasks == undefined){
             localStorage.setItem('task', JSON.stringify(this.#tasks) )

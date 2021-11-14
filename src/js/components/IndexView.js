@@ -20,6 +20,7 @@ export class IndexView {
         
         let listItemNode = document.createElement("div");
         listItemNode.setAttribute("class", "taskTotal");
+        
 
         //parte1
         let checkbox = document.createElement("div");
@@ -116,9 +117,12 @@ export class IndexView {
     render() {
         
 
+
         if (this.#taskListNode2 !== undefined) {
             this.#container1.removeChild(this.#taskListNode2);
         }
+
+
         this.#taskListNode2 = document.createElement("div");
         this.#taskListNode2.setAttribute("class", "task-list");
 

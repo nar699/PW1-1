@@ -1,17 +1,64 @@
 body {
     background-color: #E5E5E5;
     font-family: Roboto, medium;
+    display: inline;
 }
-
 #container2 {
-        
-    
-    background-color: #ffffff;
-    width: 20%;
     float: left;
+  
+    margin-top: 130px;
+    margin-left: 75px;
+}
+.div-1{ 
+    background-color: #ffffff;
+    width: 396px;
+    display: inline-block;
     height: 100vh;
     margin: 15px 15px 15px 15px;
 }
+
+
+#container1 {
+    float: left;
+    height: 100vh;
+    margin-top: 130px;
+    margin-left: 75px;
+    margin-right: 100px;
+}
+
+.checkbox1{
+    display : block;
+    float: left;
+    background-color: white;
+    width: 88px;
+    height: 88px;
+    padding-bottom: 20px;
+  
+}
+
+.parte2{
+    display : block;
+    border-top: 100px;
+    margin-left: 8px;
+    float: left;
+    background-color: white;
+    width: 800px;
+    height: 88px;
+    border-bottom: 35px;
+    border-top: 200px;
+    padding-bottom: 20px;
+}
+
+
+#checkbox1{
+    margin-left:29px;
+    margin-top: 29px;
+}
+input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
+}
+
 
 #textTodo{
     color: black;
@@ -35,15 +82,7 @@ body {
     border-color: #d8d8d8;
     border-radius: 5px;
 }
-#container1 {
- 
-    width:946px;
-    float: left;
-    height: 100vh;
-    margin-top: 130px;
-    margin-left: 75px;
-    margin-right: 100px;
-}
+
 
 .All-duties{
     display: block;
@@ -83,9 +122,9 @@ margin-top: 34px;
 .select[img]{
     margin-top: 34px;
     margin-right: 40px;
+    float: left;
 }
 
-/*Copiada del harry potter*/
 
 #searchBar {
     margin-top: 34px;
@@ -117,50 +156,11 @@ option{
      border:none;
      background: rgba(170, 161, 200, 0.25);
 }
-/*Hasta aqui copiada del harry potter*/
-.taskTotal{
-    margin-left: 0px;
-    display: block;
-    border-radius: 5px;
-    text-indent: auto;
-    width: 100%;
 
-}
-.checkbox1{
-    background-color: white;
-    
-    padding-top: 26px;
-    padding-left: 26px;
-    display: block;
-    padding-bottom: 25px;
-    margin-right: 8px;
-    width: 88px;
-    float: left;
 
-   
-}
-.parte2{
-   background-color: white;
-   float: right;
-   display: block;
-  
-}
-.saltoP{
-    display: block;
-    float: right;
-}
-input[type=checkbox] {
-    border:none;
-    border-radius: 5px;
-    background-color: rgba(171, 162, 200,0.25);
-    color: violet;
-    width: 30px;
-    height: 30px;
-    padding: 29px;
- 
-    
-   
-}
+
+
+
 #fotoTask{
     width: 47px;
     height: 47px;
