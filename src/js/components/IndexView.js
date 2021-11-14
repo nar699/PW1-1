@@ -14,7 +14,7 @@ export class IndexView {
         let taskId = task.taskId;
         let titleValue = task.titleValue;
         let DeadlieValue = task.DeadlieValue;
-        let imageValue = task.DescriptionValue;
+        let imageValue = task.imageValue;
         let DescriptionValue = task.DescriptionValue;
         console.log("entramos")
         
@@ -40,7 +40,7 @@ export class IndexView {
         listItemNode.appendChild(parte2);
 
         let imageP = document.createElement("img");
-        imageP.setAttribute("src","media/img/Rectangle 15.png");
+        imageP.setAttribute("src",imageValue);
         imageP.setAttribute("alt","1");
         imageP.setAttribute("id", "fotoTask");
         parte2.appendChild(imageP);
