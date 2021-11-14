@@ -1,3 +1,5 @@
+import { Category } from "./Category";
+
 export class Index2View {
     #container2;
     #categoriaListNode;
@@ -8,8 +10,19 @@ export class Index2View {
     #imgCheck = "media/img/check 1.png";
     #image = "../media/img/Rectangle 15.png";
 
-    constructor(container2) {
+    #CatList;
+
+    constructor(container2, CatList) {
         this.#container2 = container2;
+        this.#CatList = CatList;   
+    }
+
+    #addEventListenerToFormNode(node){
+        node.addEventListener("click", (event) => {
+            event.preventDefault();
+
+
+        });
     }
 
     update() {
@@ -71,12 +84,65 @@ export class Index2View {
         select.setAttribute("name", "color");
         select.setAttribute("id", "color");
         this.#indexFormNode.appendChild(select);
+
+
         let option1 = document.createElement("option");
         option1.setAttribute("value", "Red");
+        option1.innerHTML="Red";
         select.appendChild(option1);
 
+        let option2 = document.createElement("option");
+        option2.setAttribute("value", "Yellow");
+        option2.innerHTML="Yellow";
+        select.appendChild(option2);
         
-        
+        let option3 = document.createElement("option");
+        option3.setAttribute("value", "Green");
+        option3.innerHTML="Green";
+        select.appendChild(option3);
+
+        let option4 = document.createElement("option");
+        option4.setAttribute("value", "Blue");
+        option4.innerHTML="Blue";
+        select.appendChild(option4);
+
+        let option5 = document.createElement("option");
+        option5.setAttribute("value", "Gray");
+        option5.innerHTML="Gray";
+        select.appendChild(option5);
+
+        let option6 = document.createElement("option");
+        option6.setAttribute("value", "Black");
+        option6.innerHTML="Black";
+        select.appendChild(option6);
+
+        let categoryName = document.createElement("div");
+        categoryName.setAttribute("id","categoryName");
+        let catTextName = document.createElement("input");
+        catTextName.setAttribute("type","text");
+        catTextName.setAttribute("id","catName");
+        categoryName.appendChild(catTextName);
+        this.#indexFormNode.appendChild(categoryName);
+
+        let submitCat = document.createElement("div");
+        submitCat.setAttribute("id","submitCat");
+        let btnSubmit = document.createElement("input");
+        btnSubmit.setAttribute("type","reset");
+        btnSubmit.setAttribute("value","✓");
+        btnSubmit.setAttribute("id","submitCategoryButton");
+        submitCat.appendChild(btnSubmit);
+        this.#indexFormNode.appendChild(submitCat);
+
+        let catTableDiv = document.createElement("div");
+        catTableDiv.setAttribute("id","catTableDiv");
+        let catTable = document.createElement("table");
+        catTable.setAttribute("id","categoryTable");
+        let catTableBody = document.createElement("tbody");
+        catTable.setAttribute("id","catTableBody");
+        catTable.appendChild(catTableBody);
+        catTableDiv.appendChild(catTable);
+        div1.appendChild(catTableDiv);
+
 
         /*
         // Categoria
