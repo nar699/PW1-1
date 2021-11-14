@@ -3,7 +3,7 @@ body {
     font-family: Roboto, medium;
 }
 
-.container1 {
+#container2 {
         
     
     background-color: #ffffff;
@@ -32,7 +32,7 @@ body {
     border-color: #d8d8d8;
     border-radius: 5px;
 }
-.container2 {
+#container1 {
  
     width:946px;
     float: left;
@@ -108,27 +108,7 @@ margin-top: 34px;
 }
 
 
-#tasksList {
-    padding-inline-start: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
-}
-#color{
-  
-width: 66px;
-height: 34px;
-    background: rgba(170, 161, 200, 0.25);
-border:none;
 
-}
-#Red{
-    width: 10px; 
-     height: 10px; 
-     background: #F94144;
-     border-radius: 5px;
-
-}
 
 option{
     width: 10px; 
@@ -137,3 +117,86 @@ option{
      background: rgba(170, 161, 200, 0.25);
 }
 /*Hasta aqui copiada del harry potter*/
+.taskTotal{
+    margin-left: 0px;
+    display: block;
+    border-radius: 5px;
+    text-indent: auto;
+    width: 100%;
+
+}
+.checkbox1{
+    background-color: white;
+    
+    padding-top: 26px;
+    padding-left: 26px;
+    display: block;
+    padding-bottom: 25px;
+    margin-right: 8px;
+    width: 88px;
+    float: left;
+
+   
+}
+.parte2{
+   background-color: white;
+   float: right;
+   display: block;
+  
+}
+.saltoP{
+    display: block;
+    float: right;
+}
+input[type=checkbox] {
+    border:none;
+    border-radius: 5px;
+    background-color: rgba(171, 162, 200,0.25);
+    color: violet;
+    width: 30px;
+    height: 30px;
+    padding: 29px;
+ 
+    
+   
+}
+#fotoTask{
+    width: 47px;
+    height: 47px;
+    float: left;
+    padding-left: 25px;
+    padding-top: 21px;
+    padding-bottom: 20px;
+}
+
+#titolTask{ 
+float:left;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+margin-left: 33px;
+}
+#dateTask{
+    margin-left: 33px;
+    float:right;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 14px;
+    margin-top: 21px;
+   
+    
+}
+#descriptionTask{
+    position: absolute;
+    margin-left: 105px;
+    margin-top: 56px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
