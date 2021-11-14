@@ -82,15 +82,7 @@ export class IndexView {
 
         document.getElementById("buttonSelectAll").addEventListener("click", (event) => {
             event.preventDefault();
-            if(this.allHigh == false){
-                checkboxInput.checked = true;
-                this.allHigh = true;
-            }
-            else{
-                checkboxInput.checked = false;
-                this.allHigh = false;
-
-            }
+            checkboxInput.checked = true;
 
         });
 
