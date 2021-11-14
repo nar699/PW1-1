@@ -1,7 +1,5 @@
 import { Task } from "../components/Task.js";
 import { Image } from "../components/Image.js";
-import { Category } from "./Category.js";
-import { CatList } from "./CatList.js";
 
 export class FormView {
     #container;
@@ -230,12 +228,10 @@ export class FormView {
         def.innerHTML ='<option value="none" selected disabled hidden>Select category</option>';
  
         let list = this.#CatList.getCategory();
-
         for (var i = 0; i < list.length; i++) {
-            console.log("entro");
             let option = document.createElement("option");
             let categorySpan1 = document.createElement("span");
-            categorySpan1.innerHTML = this.#CatList.getCategory()[i];
+            categorySpan1.innerHTML = this.#CatList.getCategory()[i].nameValue;
             option.appendChild(categorySpan1);
             this.#taskcategory["select"].appendChild(option);
 

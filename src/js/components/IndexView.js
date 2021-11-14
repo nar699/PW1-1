@@ -115,6 +115,7 @@ export class IndexView {
     }
 
     render() {
+        
 
 
         if (this.#taskListNode2 !== undefined) {

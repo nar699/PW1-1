@@ -3,7 +3,7 @@ export class Category {
     this.categoryId = categoryId;
     this.nameValue = nameValue;
     this.colorValue = colorValue;
-  }
+  } 
 }
 
 
