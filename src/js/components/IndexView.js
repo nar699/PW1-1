@@ -1,4 +1,4 @@
-
+//IndexView
 export class IndexView {
     #container1;
     #taskListNode2;
@@ -12,6 +12,7 @@ export class IndexView {
         this.render2();
         this.allHigh = false;
     }
+    //creat la tasca
     #createTask(task) {
         let taskId = task.taskId;
         let titleValue = task.titleValue;
@@ -71,7 +72,7 @@ export class IndexView {
         parte2.appendChild(CategoryValueP);
 
 
-
+//div
         let saltoP = document.createElement("div");
         saltoP.setAttribute("class", "saltoP");
         listItemNode.appendChild(saltoP);
