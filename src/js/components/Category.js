@@ -1,3 +1,18 @@
+export class Category {
+  constructor(categoryId, nameValue, colorValue) {
+    this.categoryId = categoryId;
+    this.nameValue = nameValue;
+    this.colorValue = colorValue;
+  }
+}
+
+
+
+
+
+/*
+
+
 //No esta comprovat si funciona
 
 var categoryList = [];
@@ -51,3 +66,6 @@ function renameID(list){
   }
   storeCategoriesJSON(list);
 }
+
+
+*/

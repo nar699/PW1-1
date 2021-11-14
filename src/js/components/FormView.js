@@ -1,9 +1,10 @@
-import{Task} from "../components/Task.js";
-import{Image} from "../components/Image.js";
+import { Task } from "../components/Task.js";
+import { Image } from "../components/Image.js";
+import { Category } from "./Category.js";
+import { CatList } from "./CatList.js";
 
 export class FormView {
     #container;
-
 
     #taskFormNode;
     #image = "../media/img/Rectangle 15.png";
@@ -11,80 +12,87 @@ export class FormView {
     #taskDeadline = {};
     #taskcategory = {};
     #taskDescription = {};
-    #taskSubmit= {};
-    #taskCancel= {};
+    #taskSubmit = {};
+    #taskCancel = {};
     #taskCompleted = {};
 
     #store;
+    #CatList;
+
     #ImgSelected = 0;
     img = new Image();
 
-    constructor(container, store) {
+    constructor(container, store, CatList) {
         this.#store = store;
+        this.#CatList = CatList;
         this.#container = container;
     }
-    
-   #addEventListenerToSubmitNode(node) {
+
+    #addEventListenerToSubmitNode(node) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
             let titleValue = this.#taskTitle["input"].value;
             let DeadlieValue = this.#taskDeadline["input"].value;
-            let imageValue = this.img.getImage(this.#ImgSelected); 
-                
-           // let CategoryValue = this.#taskcategory["input"].value;
+            let imageValue = this.img.getImage(this.#ImgSelected);
+            let CategoryValue = document.getElementById('category').value;
             let DescriptionValue = this.#taskDescription["input"].value;
 
-
             // Guard clause. If productName is empty, don't do anything.
-            if (titleValue.length>50 ) {
+            if (titleValue.length == 0) {
                 return;
             }
 
+            if (DeadlieValue == ""){
+                return;
+            }
+
+            if (DescriptionValue == 0){
+                return;
+            }
             // Be careful that this 'nextId' implementation does not ensure id uniqueness
 
             // A workaround would be to store the last Id,
             // every time a product is created, generate the next id by: lastId + 1
             const taskId = (this.#store.getTask().length || 0) + 1;
-            let task = new Task(taskId, titleValue,DeadlieValue,imageValue/*,CategoryValue*/,DescriptionValue);
+            let task = new Task(taskId, titleValue, DeadlieValue, imageValue, CategoryValue, DescriptionValue);
             this.#store.addTask(task);
-            console.log(this.#store.getTask());
-            window.location.href="index.html";
-            
+            window.location.href = "index.html";
+
         });
     }
 
     #clearProductForm() {
-        this.#taskTitle["input"].value= "";
-        this.#taskDeadline["input"].value= "";
-        this.#taskDescription["input"].value= "";
+        this.#taskTitle["input"].value = "";
+        this.#taskDeadline["input"].value = "";
+        this.#taskDescription["input"].value = "";
     }
 
 
     #addEventListenerToCancelNode(node) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
-            window.location.href="index.html";
+            window.location.href = "index.html";
         });
     }
-  
 
-    #addEventListenerToChangeImageNode(node,id) {
+
+    #addEventListenerToChangeImageNode(node, id) {
         node.addEventListener("click", (event) => {
             event.preventDefault();
-            
+
             var newSrc = this.img.selectImage(id);
             document.getElementById('fotoGran').src = newSrc;
-            this.#ImgSelected = id; 
+            this.#ImgSelected = id;
             console.log(newSrc);
             this.update();
         });
     }
-    
+
     update() {
         this.render;
     }
     render() {
-        
+
         //Foto principal
         let fotoGran = document.createElement("div");
         fotoGran.setAttribute("class", "fotoGran");
@@ -100,62 +108,59 @@ export class FormView {
         //Conjunt fotos
 
         let fotos = document.createElement("div");
-        fotos.setAttribute("class","fotos");
-        this.#container.appendChild(fotos); 
+        fotos.setAttribute("class", "fotos");
+        this.#container.appendChild(fotos);
         let picture = document.createElement("picture");
         fotos.appendChild(picture);
 
         let input0 = document.createElement("input");
-        input0.setAttribute("type","image");
-        input0.setAttribute("src","media/img/Rectangle 15.png");
-        input0.setAttribute("alt","0");
-        input0.setAttribute("id","0");
-        this.#addEventListenerToChangeImageNode(input0,input0.id);
+        input0.setAttribute("type", "image");
+        input0.setAttribute("src", "media/img/Rectangle 15.png");
+        input0.setAttribute("alt", "0");
+        input0.setAttribute("id", "0");
+        this.#addEventListenerToChangeImageNode(input0, input0.id);
         picture.appendChild(input0);
 
         let input1 = document.createElement("input");
-        input1.setAttribute("type","image");
-        input1.setAttribute("src","media/img/Rectangle 16.png");
-        input1.setAttribute("alt","1");
-        input1.setAttribute("id","1");
-        this.#addEventListenerToChangeImageNode(input1,input1.id);
+        input1.setAttribute("type", "image");
+        input1.setAttribute("src", "media/img/Rectangle 16.png");
+        input1.setAttribute("alt", "1");
+        input1.setAttribute("id", "1");
+        this.#addEventListenerToChangeImageNode(input1, input1.id);
         picture.appendChild(input1);
 
 
         let input2 = document.createElement("input");
-        input2.setAttribute("type","image");
-        input2.setAttribute("src","media/img/Rectangle 17.png");
-        input2.setAttribute("alt","2");
-        input2.setAttribute("id","2");
-        this.#addEventListenerToChangeImageNode(input2,input2.id);
+        input2.setAttribute("type", "image");
+        input2.setAttribute("src", "media/img/Rectangle 17.png");
+        input2.setAttribute("alt", "2");
+        input2.setAttribute("id", "2");
+        this.#addEventListenerToChangeImageNode(input2, input2.id);
         picture.appendChild(input2);
 
         let input3 = document.createElement("input");
-        input3.setAttribute("type","image");
-        input3.setAttribute("src","media/img/Rectangle 18.png");
-        input3.setAttribute("alt","3");
-        input3.setAttribute("id","3");
-        this.#addEventListenerToChangeImageNode(input3,input3.id);
+        input3.setAttribute("type", "image");
+        input3.setAttribute("src", "media/img/Rectangle 18.png");
+        input3.setAttribute("alt", "3");
+        input3.setAttribute("id", "3");
+        this.#addEventListenerToChangeImageNode(input3, input3.id);
         picture.appendChild(input3);
 
         let input4 = document.createElement("input");
-        input4.setAttribute("type","image");
-        input4.setAttribute("src","media/img/Rectangle 19.png");
-        input4.setAttribute("alt","4");
-        input4.setAttribute("id","4");
-        this.#addEventListenerToChangeImageNode(input4,input4.id);
+        input4.setAttribute("type", "image");
+        input4.setAttribute("src", "media/img/Rectangle 19.png");
+        input4.setAttribute("alt", "4");
+        input4.setAttribute("id", "4");
+        this.#addEventListenerToChangeImageNode(input4, input4.id);
         picture.appendChild(input4);
 
         let input5 = document.createElement("input");
-        input5.setAttribute("type","image");
-        input5.setAttribute("src","media/img/Rectangle 20.png");
-        input5.setAttribute("alt","5");
-        input5.setAttribute("id","5");
-        this.#addEventListenerToChangeImageNode(input5,input5.id);
+        input5.setAttribute("type", "image");
+        input5.setAttribute("src", "media/img/Rectangle 20.png");
+        input5.setAttribute("alt", "5");
+        input5.setAttribute("id", "5");
+        this.#addEventListenerToChangeImageNode(input5, input5.id);
         picture.appendChild(input5);
-        
-
-
 
 
 
@@ -204,7 +209,7 @@ export class FormView {
         this.#taskFormNode.appendChild(category);
 
         this.#taskcategory["label"] = document.createElement("label");
-        this.#taskcategory["label"].setAttribute("for","category");
+        this.#taskcategory["label"].setAttribute("for", "category");
         let categorySpan = document.createElement("span");
         categorySpan.innerHTML = "Category";
         this.#taskcategory["label"].appendChild(categorySpan);
@@ -214,18 +219,19 @@ export class FormView {
         this.#taskcategory["select"].setAttribute("id", "category");
         this.#taskcategory["select"].setAttribute("name", "category");
         category.appendChild(this.#taskcategory["select"]);
+        
+        let list = this.#CatList.getCategory();
 
-        let option1 = document.createElement("option");
-        let categorySpan1 = document.createElement("span");
-        categorySpan1.innerHTML = "la1"
-        option1.appendChild(categorySpan1);
-        this.#taskcategory["select"].appendChild(option1);
+        for (var i = 0; i < list.length; i++) {
 
-        let option2 = document.createElement("option");
-        let categorySpan2 = document.createElement("span");
-        categorySpan2.innerHTML = "la2"
-        option2.appendChild(categorySpan2);
-        this.#taskcategory["select"].appendChild(option2);
+            let option = document.createElement("option");
+            let categorySpan1 = document.createElement("span");
+            categorySpan1.innerHTML = this.#CatList.getCategory()[i];
+            option.appendChild(categorySpan1);
+            this.#taskcategory["select"].appendChild(option);
+
+        }
+
         //description
 
         let description = document.createElement("div");
@@ -233,7 +239,7 @@ export class FormView {
         this.#taskFormNode.appendChild(description);
 
         this.#taskDescription["label"] = document.createElement("label");
-        this.#taskDescription["label"].setAttribute("for","description")
+        this.#taskDescription["label"].setAttribute("for", "description")
         let descriptionSpan = document.createElement("span");
         descriptionSpan.innerHTML = "Description";
         this.#taskDescription["label"].appendChild(descriptionSpan);
@@ -263,7 +269,7 @@ export class FormView {
         this.#taskCompleted["label"].appendChild(completedSpan);
         checkbox.appendChild(this.#taskCompleted["label"]);
 
-        
+
 
         //submit cancel
 
@@ -283,7 +289,7 @@ export class FormView {
         let submit = document.createElement("div");
         submit.setAttribute("class", "submit-accept");
 
-        this.#taskSubmit= document.createElement("input");
+        this.#taskSubmit = document.createElement("input");
         this.#taskSubmit.setAttribute("id", "submit-accept");
         this.#taskSubmit.setAttribute("type", "submit");
         this.#taskSubmit.setAttribute("value", "Accept");

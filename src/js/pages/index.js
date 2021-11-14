@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     let indexView = new IndexView(document.getElementById("container"), store)
     indexView.render();
     //part esq
-    let index2View = new Index2View(document.getElementById("container2"), store)
-    index2View.render();
+  // let index2View = new Index2View(document.getElementById("container2"), store)
+   // index2View.render();
 
 
 
-    
+
 });
