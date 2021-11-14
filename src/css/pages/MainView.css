@@ -173,11 +173,11 @@ margin-top: 34px;
 /*desde harry*/
 
 #searchBar {
-    margin-top: 34px;
+   margin-top: 88px;
     background: rgba(170, 161, 200, 0.25);
     width: 366px;
-    height: 56px;
-    height: 40px;
+    height: 50px;
+    
     float: right;
     border-radius: 5px;
     border: 1px solid #dedce7;
@@ -187,8 +187,9 @@ margin-top: 34px;
 
 
 .searchEngine::after {
+    margin-top: 90px;
     content: '🔍';
-    position: absolute;
+    float: right;
     top: 7px;
     right: 15px;
 }
@@ -326,7 +327,6 @@ background-color: #6247AA;
     margin-left: 42px;
     width: 56px;
     height: 56px;
-
     
 }
 #buttonTick:hover,
@@ -336,6 +336,7 @@ background-color: #6247AA;
 }
 .parteSuperior1{
     display: inline-block;
+    margin-top: 6px;
 }
 #icono22{
     float: left;
