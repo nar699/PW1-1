@@ -1,5 +1,7 @@
 import { Category } from "./Category";
 
+//autors: marc, gerard, narcis
+
 export class Index2View {
     #container2;
     #categoriaListNode;
@@ -235,15 +237,6 @@ export class Index2View {
 
         }
 
-        /*
-        // Categoria
-        this.#categoriaListNode = document.createElement("ul");
-        this.#categoriaListNode.setAttribute("id", "product-list");
-
-        //this.#store.getTask().forEach((task) => this.#addTaskToList(task));
-        
-
-        this.#container.appendChild(this.#categoriaListNode);
-        */
+      
     }
 }

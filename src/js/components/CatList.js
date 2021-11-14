@@ -1,5 +1,5 @@
 /*Classe que contindra la llista de totes les categories*/ 
-
+//autors: marc, gerard, narcis
 
 export class CatList {
     #categories = {};

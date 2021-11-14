@@ -1,4 +1,6 @@
 //IndexView
+//autors: marc, gerard, narcis
+
 export class IndexView {
     #container1;
     #taskListNode2;

@@ -2,6 +2,8 @@ import { Task } from "../components/Task.js";
 import { Image } from "../components/Image.js";
 
 //clase que conte tota la view de form
+//autors: marc, gerard, narcis
+
 export class FormView {
     #container;
 
