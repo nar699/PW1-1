@@ -2,13 +2,15 @@
 export class IndexView {
     #container1;
     #taskListNode2;
-
+    allHigh;
     #store;
-
+    let
     constructor(container1, store) {
         this.#container1 = container1;
         this.#store = store;
         this.#store.addObserver(this);
+        this.render2();
+        this.allHigh = false;
     }
     #createTask(task) {
         let taskId = task.taskId;
@@ -28,7 +30,7 @@ export class IndexView {
         listItemNode.appendChild(checkbox);
 
         let checkboxInput = document.createElement("input");
-        checkboxInput.setAttribute("id", taskId);
+        checkboxInput.setAttribute("id", task.taskId);
         checkboxInput.setAttribute("type", "checkbox");
         checkbox.appendChild(checkboxInput);
         //button que no se com fer
@@ -68,6 +70,30 @@ export class IndexView {
         listItemNode.appendChild(saltoP);
 
 
+        document.getElementById("buttonDelete").addEventListener("click", (event) => {
+            event.preventDefault();
+
+            if (checkboxInput.checked) {
+                this.#removeTask(taskId);
+            }
+        });
+
+
+
+        document.getElementById("buttonSelectAll").addEventListener("click", (event) => {
+            event.preventDefault();
+            if(this.allHigh == false){
+                checkboxInput.checked = true;
+                this.allHigh = true;
+            }
+            else{
+                checkboxInput.checked = false;
+                this.allHigh = false;
+
+            }
+
+        });
+
 
         return listItemNode;
     }
@@ -83,28 +109,9 @@ export class IndexView {
         });
     }
 
-    #addEventListenerToRemove(node) {
 
-        node.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            if (checkboxInput.checked) {
-                this.#removeTask(taskId);
-            }
-
-        });
-    }
-
-
-    #addEventListenerToCheckAll(node) {
-
-        node.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            checkboxInput.checked = true;
-
-
-        });
+    #changeAllHight(bool) {
+        this.allhigh = bool;
     }
 
     #addTaskToList(task) {
@@ -121,7 +128,7 @@ export class IndexView {
         this.render();
     }
 
-    render() {
+    render2() {
 
         let parteSuperior1 = document.createElement("div");
         parteSuperior1.setAttribute("class", "parteSuperior1");
@@ -145,25 +152,23 @@ export class IndexView {
         let buttonSelectAll = document.createElement("button");
         buttonSelectAll.setAttribute("id", "buttonSelectAll");
         buttonSelectAll.innerHTML = "Select all";
-        this.#addEventListenerToCheckAll(buttonSelectAll);
         parteSuperior2.appendChild(buttonSelectAll);
 
         let buttonTick = document.createElement("button");
         buttonTick.setAttribute("id", "buttonTick");
         buttonTick.innerHTML = "✓";
-        this.#addEventListenerToCheck(buttonTick);
         parteSuperior2.appendChild(buttonTick);
 
         let buttonDelete = document.createElement("button");
         buttonDelete.setAttribute("id", "buttonDelete");
         buttonDelete.innerHTML = "Delete";
-        this.#addEventListenerToRemove(buttonDelete);
 
         parteSuperior2.appendChild(buttonDelete);
         this.#container1.appendChild(parteSuperior2);
 
 
-
+    }
+    render() {
 
 
         if (this.#taskListNode2 !== undefined) {
