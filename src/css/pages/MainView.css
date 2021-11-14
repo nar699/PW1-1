@@ -84,19 +84,7 @@ input[type="checkbox"]{
 }
 
 
-.All-duties{
-    display: block;
-}
 
-.All-duties img{
-    display: inline;
-    width: 24px;
-    height: 24px;
-}
-.All-duties h1{
-    margin-left: 20px;
-    display: inline;
-}
 
 .select{
     display: inline;
