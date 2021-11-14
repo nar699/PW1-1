@@ -1,7 +1,7 @@
 {
-  "name": "js-template",
+  "name": "Gerard-Marc-Narcis",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gerard-Marc-Narcis",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
