@@ -285,6 +285,18 @@ margin-left: 33px;
     line-height: 16px;
 }
 
+#CategoryValue{
+    margin-left: 33px;
+    float:right;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 14px;
+    margin-top: 68px;
+}
+
 #buttonSelectAll{
     text-decoration: none;
     font-weight: 600;
