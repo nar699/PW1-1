@@ -83,7 +83,6 @@ export class FormView {
             var newSrc = this.img.selectImage(id);
             document.getElementById('fotoGran').src = newSrc;
             this.#ImgSelected = id;
-            console.log(newSrc);
             this.update();
         });
     }
