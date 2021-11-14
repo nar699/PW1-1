@@ -68,35 +68,25 @@ export class IndexView {
         listItemNode.appendChild(saltoP);
 
         
-        
-
-       
-
-    /*
-
-        let buttonP = document.createElement("dd");
-        buttonP.setAttribute("class", "buttonTask");
-        listItemNode.appendChild(buttonP);
-
-        let deleteButtonNode = document.createElement("button");
-        deleteButtonNode.innerHTML = "Delete";
-        buttonP.appendChild(deleteButtonNode);
       
         
-
-       
-
-        
-        
-        deleteButtonNode.addEventListener("click", (event) => {
+        document.getElementByID("buttonSelectAll").addEventListener("click", (event) => {
             event.preventDefault();
 
-            // productId reference is enclosed in the callback scope
-            this.#removeTask(taskId);
+            checkboxInput.checked = treu;
+           
+            
+        });
+       
+        document.getElementByID("delebuttonDeletete").addEventListener("click", (event) => {
+            event.preventDefault();
 
-            // You can also get the prodect id if previously set as a custom attribute
-            console.log(event.target.parentNode.getAttribute("data-product-id"));
-        });*/
+            if(checkboxInput.checked){
+                this.#removeTask(taskId);
+            }
+            
+        });
+        
         return listItemNode;
     }
 
@@ -116,6 +106,43 @@ export class IndexView {
 
     render() {
         
+        let parteSuperior1 = document.createElement("div");
+        parteSuperior1.setAttribute("class", "parteSuperior1");
+
+        let iconoDuties = document.createElement("src");
+        iconoDuties.setAttribute("src","'media/img/list-status 1.png");
+        iconoDuties.setAttribute("id","statusImage");
+        iconoDuties.setAttribute("width","500");
+        iconoDuties.setAttribute("height","600");
+        parteSuperior1.appendChild(iconoDuties);
+
+        let duties = document.createElement("h1");
+        duties.setAttribute("id","Duties");
+        duties.innerHTML = "Duties";
+        parteSuperior1.appendChild(duties);
+        this.#container1.appendChild(parteSuperior1);
+
+        let parteSuperior2 = document.createElement("div");
+        parteSuperior2.setAttribute("class", "parteSuperior2");
+
+        let buttonSelectAll = document.createElement("button");
+        buttonSelectAll.setAttribute("id","buttonSelectAll");
+        buttonSelectAll.innerHTML = "Select all";
+        parteSuperior2.appendChild(buttonSelectAll);
+
+        let buttonTick = document.createElement("button");
+        buttonTick.setAttribute("id","buttonTick");
+        buttonTick.innerHTML = "✓";
+        parteSuperior2.appendChild(buttonTick);
+
+        let buttonDelete = document.createElement("button");
+        buttonDelete.setAttribute("id","buttonDelete");
+        buttonDelete.innerHTML = "Delete";
+        parteSuperior2.appendChild(buttonDelete);
+        this.#container1.appendChild(parteSuperior2);
+
+    
+
 
 
         if (this.#taskListNode2 !== undefined) {
