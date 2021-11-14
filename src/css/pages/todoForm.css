@@ -149,7 +149,45 @@ input[type=date] {
     vertical-align: text-top;  
     border:none;
     border-radius: 5px;
+}
 
+h4{
+    margin-top: 13px;
+    width: 945px;
+    height: 191px;
+    background-color: red;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-indent:60px;
+    vertical-align: text-top;  
+    border:none;
+    border-radius: 5px;
+}
+
+p {
+    text-align: center;
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-style: bold;
+    font-size: 25px;
+
+}
+
+#textError{
+    margin-top: 13px;
+    width: 945px;
+    height: 191px;
+    background-color: red;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-indent:60px;
+    vertical-align: text-top;  
+    border:none;
+    border-radius: 5px;
 }
 
 input[type=submit] {
@@ -197,4 +235,9 @@ margin-right: 13px;
 #submit-accept:hover {
     color: rgb(0, 0, 0);
     background-color: #8B74D8;
+}
+
+#error {
+    color: red;
+    display: inline;
 }
