@@ -32,7 +32,7 @@ body {
     background-color: white;
     width: 88px;
     height: 88px;
-    padding-bottom: 20px;
+    
   
 }
 
@@ -46,7 +46,6 @@ body {
     height: 88px;
     border-bottom: 35px;
     border-top: 200px;
-    padding-bottom: 20px;
 }
 
 
@@ -54,9 +53,12 @@ body {
     margin-left:29px;
     margin-top: 29px;
 }
+
 input[type="checkbox"]{
     width: 30px;
     height: 30px;
+    margin-left:29px;
+    margin-top: 29px;
 }
 
 
@@ -283,4 +285,64 @@ margin-left: 33px;
     line-height: 16px;
 }
 
+#buttonSelectAll{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+    border: none;
+    background-color: #AAA1C8;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    width: 172px;
+    height: 56px;
+    margin-bottom: 20px;
+    
+}
+#buttonSelectAll:hover{
+background-color: #6247AA;
+}
+#buttonTick{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+    border: none;
+    background-color: #C6C6C6;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    width: 56px;
+    height: 56px;
+    margin-left: 42px;
+    width: 56px;
+    height: 56px;
 
+    
+}
+#buttonTick:hover,
+#buttonDelete:hover{
+    background-color: #8B74D8;
+
+}
+.parteSuperior1{
+    display: inline-block;
+}
+#icono22{
+    float: left;
+    padding-top: 25px;
+}
+#Duties{
+    float: left;
+    margin-left: 50px;
+}
+#buttonDelete{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+    border: none;
+    background-color: #C6C6C6;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    margin-left: 12px;
+    width: 56px;
+    height: 56px;
+    
+}
