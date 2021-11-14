@@ -18,6 +18,8 @@ export class IndexView {
         let DeadlieValue = task.DeadlieValue;
         let imageValue = task.imageValue;
         let DescriptionValue = task.DescriptionValue;
+        let CategoryValue = task.CategoryValue;
+        let Completed = task.Completed;
         console.log("entramos")
 
         let listItemNode = document.createElement("div");
@@ -62,6 +64,11 @@ export class IndexView {
         DescriptionP.setAttribute("id", "descriptionTask");
         DescriptionP.innerHTML = `${DescriptionValue}`;
         parte2.appendChild(DescriptionP);
+
+        let CategoryValueP = document.createElement("p");
+        CategoryValueP.setAttribute("id", "CategoryValue");
+        CategoryValueP.innerHTML = `${CategoryValue}`;
+        parte2.appendChild(CategoryValueP);
 
 
 
