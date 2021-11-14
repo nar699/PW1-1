@@ -152,11 +152,10 @@ export class IndexView {
         let parteSuperior1 = document.createElement("div");
         parteSuperior1.setAttribute("class", "parteSuperior1");
 
-        let iconoDuties = document.createElement("src");
-        iconoDuties.setAttribute("src", "'media/img/list-status 1.png");
-        iconoDuties.setAttribute("id", "statusImage");
-        iconoDuties.setAttribute("width", "500");
-        iconoDuties.setAttribute("height", "600");
+        let iconoDuties = document.createElement("img");
+        iconoDuties.setAttribute("src","media/img/calendar 1.svg");
+        iconoDuties.setAttribute("id","icono22");
+        iconoDuties.setAttribute("alt","icono2");
         parteSuperior1.appendChild(iconoDuties);
 
         let duties = document.createElement("h1");
@@ -180,7 +179,7 @@ export class IndexView {
 
         let buttonDelete = document.createElement("button");
         buttonDelete.setAttribute("id", "buttonDelete");
-        buttonDelete.innerHTML = "Delete";
+        buttonDelete.innerHTML = "Del";
 
         parteSuperior2.appendChild(buttonDelete);
         this.#container1.appendChild(parteSuperior2);
